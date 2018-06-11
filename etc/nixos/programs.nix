@@ -39,13 +39,18 @@
 				wine32 = "WINEARCH=win32 WINEPREFIX=~/.wine32";
 
 				# Fix sound.
-				fixsound = "pacmd load-module module-alsa-sink device=hw:$(aplay -l | grep \"USB Audio \#1\" | cut -c 6),1";
+				fixsound = "pacmd load-module module-alsa-sink device=hw:$(aplay -l | grep \"SteelSeries Arctis 7\" | grep \"USB Audio \#1\" | cut -c 6),1";
 
 				# Spawn Arch Linux instance.
 				spawn_arch = "sudo systemd-nspawn -b -M archlinux -D /mnt/containers/archlinux";
 
 				# meguca dev environment.
-				meguca_dev = "export GOPATH=~/.go && nix-shell -p gcc gnumake go pkgconfig ffmpeg-full graphicsmagick ghostscript nodejs cmake emscripten qt5.qtbase qt5.qtdeclarative qt5.qmake";
+				meguca_dev = "sudo systemctl stop meguca && export GOPATH=~/.go && nix-shell -p go nodejs emscripten gcc " +
+					"gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
+
+				# hydron dev environment.
+				hydron_dev = "export GOPATH=~/.go && nix-shell -p go gcc pkgconfig gnumake ffmpeg-full graphicsmagick " +
+					"qt5.qtbase qt5.qtdeclarative qt5.qmake";
 			};
 		};
 
