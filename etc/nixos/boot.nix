@@ -43,6 +43,7 @@
 			"amd_iommu=on"
 			"iommu=pt"
 			"zswap.enabled=1"
+			"bluetooth.disable_ertm=1"
 		];
 
 		# Enable the needed kernel modules.

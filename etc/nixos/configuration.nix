@@ -5,7 +5,7 @@
 
 {
 	# Automatically upgrade the system.
-	system.stateVersion = "18.03";
+	system.nixos.stateVersion = "unstable";
 
 	# Import other configurations.
 	imports = [

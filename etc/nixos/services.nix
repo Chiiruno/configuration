@@ -43,6 +43,11 @@
 			enableGC = true;
 		};
 
+		# Enable meguca.
+#		meguca = {
+#			enable = true;
+#		};
+
 		# Enable the X11 server.
 		xserver = {
 			# Enable the X11 windowing system.
@@ -56,6 +61,16 @@
 				enable = true;
 				autoNumlock = true;
 			};
+
+			# Disable joystick controlling the pointer.
+			inputClassSections = [''
+				Identifier		"joystick catchall"
+				MatchIsJoystick	"on"
+				MatchDevicePath	"/dev/input/event*"
+				Driver			"joystick"
+				Option			"StartKeysEnabled" "False"	#Disable mouse
+				Option			"StartMouseEnabled" "False"	#support
+			''];
 		};
 
 		# Enable the redshift colour temperature changer.

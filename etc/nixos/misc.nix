@@ -12,6 +12,9 @@
 		# Enable updating the AMD microcode.
 		cpu.amd.updateMicrocode = true;
 
+		# Enable bluetooth.
+		bluetooth.enable = true;
+
 		# OpenGL configuration.
 		opengl = {
 			driSupport32Bit = true;
