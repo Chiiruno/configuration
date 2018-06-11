@@ -49,6 +49,8 @@
 		defaultUserShell = pkgs.zsh;
 
 		extraUsers = {
+			deluge.extraGroups = ["users"];
+
 			okina = {
 				# $ mkpasswd -m sha-512
 				initialHashedPassword = "$6$2eZF5D9poF$0cDC37zn4bzmdiSZDsVIh1pqHjJov67N8GyTPUxgKMq6VOv/ahgr1657b3S/UxJm0p9KkYsbSFOGuBTSRSv6T0";
@@ -63,10 +65,6 @@
 					"networkmanager"
 					"deluge"
 				];
-			};
-
-			deluge = {
-				extraGroups = ["users"];
 			};
 		};
 	};

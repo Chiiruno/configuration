@@ -43,6 +43,9 @@
 
 				# Spawn Arch Linux instance.
 				spawn_arch = "sudo systemd-nspawn -b -M archlinux -D /mnt/containers/archlinux";
+
+				# meguca dev environment.
+				meguca_dev = "export GOPATH=~/.go && nix-shell -p gcc gnumake go pkgconfig ffmpeg-full graphicsmagick ghostscript nodejs cmake emscripten qt5.qtbase qt5.qtdeclarative qt5.qmake";
 			};
 		};
 

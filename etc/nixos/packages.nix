@@ -4,18 +4,6 @@
 	# List packages installed in system profile. To search by name, run:
 	# $ nix-env -qaP | grep wget
 	environment.systemPackages = with pkgs; [
-		# Meguca.
-		cmake
-		pkgconfig
-		go
-		gcc
-		gnumake
-		nodejs
-		emscripten
-		ghostscript
-		ffmpeg-full
-		graphicsmagick
-
 		# Utilities.
 		lm_sensors
 		alsaUtils
@@ -38,7 +26,6 @@
 		chromium
 		deluge
 		git
-		meguca
 
 		# Media.
 		mpd

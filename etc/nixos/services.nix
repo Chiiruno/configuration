@@ -8,8 +8,15 @@
 		# Enable printing support.
 		printing.enable = true;
 
-		# Enable postgresql
-		postgresql.enable = true;
+		# Enable Prixoxy.
+		privoxy = {
+			enable = true;						# 8118
+
+			extraConfig = ''
+				forward-socks5 / 127.0.0.1:9063 .
+				forward .i2p 127.0.0.1:4444
+			'';
+		};
 
 		# Enable I2P.
 		i2pd = {
@@ -43,10 +50,17 @@
 			enableGC = true;
 		};
 
-		# Enable meguca.
-#		meguca = {
+		# Enable postgresql
+		postgresql = {
 #			enable = true;
-#		};
+			package = pkgs.postgresql96;
+		};
+
+
+		# Enable meguca.
+		meguca = {
+			enable = true;
+		};
 
 		# Enable the X11 server.
 		xserver = {
