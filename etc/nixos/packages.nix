@@ -13,7 +13,6 @@
 		scrot
 		tewisay
 		openssl
-		steam-run-native
 
 		# Compression.
 		p7zip
@@ -22,8 +21,6 @@
 		unar
 
 		# Internet
-		firefox
-		chromium
 		deluge
 		git
 
@@ -36,19 +33,23 @@
 		mcomix
 		timidity
 		soundfont-fluid
-#		obs-studio
 
 		# Games.
 		steam
+		steam-run-native
 		openmw
 		minecraft
 		multimc
 		armagetronad
 
 		# Emulation.
-		dolphinEmu
+		(lowPrio dolphinEmu)
 		dolphinEmuMaster
-		retroarch
+		snes9x-gtk
+		mgba
+		mupen64plus
+		desmume
+		citra
 
 		(wine.override {
 			wineRelease = "unstable";
@@ -68,5 +69,6 @@
 		okular
 		spectacle
 		gwenview
+		redshift-plasma-applet
 	];
 }

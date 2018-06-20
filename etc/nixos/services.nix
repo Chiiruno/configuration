@@ -8,6 +8,13 @@
 		# Enable printing support.
 		printing.enable = true;
 
+		# Extra udev rules.
+		udev.extraRules = ''
+			# Let users read GameCube and Wii controllers.
+			SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"
+			SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0aa7", TAG+="uaccess"
+		'';
+
 		# Enable Prixoxy.
 		privoxy = {
 			enable = true;						# 8118
@@ -52,15 +59,10 @@
 
 		# Enable postgresql
 		postgresql = {
-#			enable = true;
+			enable = true;
 			package = pkgs.postgresql96;
 		};
 
-
-		# Enable meguca.
-		meguca = {
-			enable = true;
-		};
 
 		# Enable the X11 server.
 		xserver = {

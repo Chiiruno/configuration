@@ -31,17 +31,6 @@
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
-		icedtea = true;
-
-		firefox = {
-			enableGoogleTalkPlugin = true;
-			enableAdobeFlash = true;
-		};
-
-		chromium = {
-			enablePepperFlash = true;
-			enablePepperPDF = true;
-		};
 	};
 
 	# User configuration.
@@ -50,6 +39,7 @@
 
 		extraUsers = {
 			deluge.extraGroups = ["users"];
+			meguca.isSystemUser = true;
 
 			okina = {
 				# $ mkpasswd -m sha-512
@@ -64,6 +54,8 @@
 					"audio"
 					"networkmanager"
 					"deluge"
+					"input"
+					"plugdev"
 				];
 			};
 		};

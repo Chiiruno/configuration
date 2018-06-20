@@ -45,12 +45,15 @@
 				spawn_arch = "sudo systemd-nspawn -b -M archlinux -D /mnt/containers/archlinux";
 
 				# meguca dev environment.
-				meguca_dev = "sudo systemctl stop meguca && export GOPATH=~/.go && nix-shell -p go nodejs emscripten gcc " +
-					"gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
+				meguca_dev = "export GOPATH=~/.go && nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig " +
+					"go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
 
 				# hydron dev environment.
-				hydron_dev = "export GOPATH=~/.go && nix-shell -p go gcc pkgconfig gnumake ffmpeg-full graphicsmagick " +
+				hydron_dev = "export GOPATH=~/.go && nix-shell -p go gcc gnumake pkgconfig ffmpeg-full graphicsmagick " +
 					"qt5.qtbase qt5.qtdeclarative qt5.qmake";
+
+				# Override Mesa OpenGL version to 3.0.
+				mesa_override= "MESA_GL_VERSION_OVERRIDE=3.0";
 			};
 		};
 
