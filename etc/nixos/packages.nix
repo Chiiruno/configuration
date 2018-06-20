@@ -13,6 +13,7 @@
 		scrot
 		tewisay
 		openssl
+		catfish
 
 		# Compression.
 		p7zip
