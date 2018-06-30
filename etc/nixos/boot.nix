@@ -1,6 +1,11 @@
+{ pkgs, ... }:
+
 {
 	# Boot configuration.
 	boot = {
+		# Linux kernel version to use.
+		kernelPackages = pkgs.linuxPackages_latest;
+
 		# Boot loader configuration.
 		loader = {
 			# EFI configuration.

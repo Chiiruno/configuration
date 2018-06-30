@@ -22,6 +22,7 @@
 		unar
 
 		# Internet
+		firefox
 		deluge
 		git
 
@@ -55,6 +56,7 @@
 		(wine.override {
 			wineRelease = "unstable";
 			wineBuild = "wineWow";
+			gstreamerSupport = false;
 		})
 
 		# KDE.

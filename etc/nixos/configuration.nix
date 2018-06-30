@@ -31,6 +31,11 @@
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
+
+		firefox = {
+			enableGoogleTalkPlugin = true;
+			enableAdobeFlash = true;
+		};
 	};
 
 	# User configuration.
