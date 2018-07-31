@@ -5,7 +5,7 @@
 
 {
 	# Automatically upgrade the system.
-	system.nixos.stateVersion = "unstable";
+	system.stateVersion = "unstable";
 
 	# Import other configurations.
 	imports = [
@@ -21,7 +21,7 @@
 
 	# Nix configuration.
 	nix = {
-		maxJobs =  16;
+		maxJobs = 16;
 		buildCores = 0;
 		autoOptimiseStore = true;
 		useSandbox = true;
@@ -31,10 +31,16 @@
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
+		icedtea = true;
 
 		firefox = {
 			enableGoogleTalkPlugin = true;
 			enableAdobeFlash = true;
+		};
+
+		chromium = {
+			enablePepperFlash = true;
+			enablePepperPDF = true;
 		};
 	};
 
@@ -45,6 +51,7 @@
 		extraUsers = {
 			deluge.extraGroups = ["users"];
 			meguca.isSystemUser = true;
+			hydron.isSystemUser = true;
 
 			okina = {
 				# $ mkpasswd -m sha-512

@@ -27,7 +27,10 @@
 				nrebuild = "sudo nixos-rebuild switch";
 
 				# Upgrade the system.
-				nupgrade = "sudo nix-channel --update && sudo nixos-rebuild switch && kbuildsycoca5";
+				nupgrade = "sudo nix-channel --update && sudo nixos-rebuild switch";
+
+				# Upgrade the system. (boot)
+				nboot = "sudo nix-channel --update && sudo nixos-rebuild boot";
 
 				# Collect garbage.
 				ncollect = "sudo nix-collect-garbage -d";
@@ -45,12 +48,7 @@
 				spawn_arch = "sudo systemd-nspawn -b -M archlinux -D /mnt/containers/archlinux";
 
 				# meguca dev environment.
-				meguca_dev = "export GOPATH=~/.go && nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig " +
-					"go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
-
-				# hydron dev environment.
-				hydron_dev = "export GOPATH=~/.go && nix-shell -p go gcc gnumake pkgconfig ffmpeg-full graphicsmagick " +
-					"qt5.qtbase qt5.qtdeclarative qt5.qmake";
+				meguca_dev = "export GOPATH=~/go:$GOPATH && nix-shell -p jq go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
 
 				# Override Mesa OpenGL version to 3.0.
 				mesa_override= "MESA_GL_VERSION_OVERRIDE=3.0";

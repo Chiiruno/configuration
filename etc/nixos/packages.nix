@@ -15,6 +15,12 @@
 		openssl
 		catfish
 
+		# Development
+		gcc
+		go
+		nodejs
+		vscode-with-extensions
+
 		# Compression.
 		p7zip
 		unzip
@@ -23,6 +29,7 @@
 
 		# Internet
 		firefox
+		chromium
 		deluge
 		git
 
