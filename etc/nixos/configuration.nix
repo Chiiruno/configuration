@@ -63,7 +63,6 @@
 		defaultUserShell = pkgs.zsh;
 
 		extraUsers = {
-			deluge.extraGroups = ["users"];
 			meguca.isSystemUser = true;
 			hydron.isSystemUser = true;
 
@@ -79,7 +78,6 @@
 					"wheel"
 					"audio"
 					"networkmanager"
-					"deluge"
 					"input"
 					"plugdev"
 				];

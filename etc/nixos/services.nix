@@ -94,12 +94,6 @@
 			enable = true;
 			provider = "geoclue2";
 		};
-
-		# Enable the deluge daemon.
-		deluge = {
-			enable = true;
-			openFilesLimit = 16384;
-		};
 	};
 
 	# Enable timidity service as user.

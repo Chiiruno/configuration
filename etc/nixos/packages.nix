@@ -30,7 +30,7 @@
 		# Internet
 		firefox
 		chromium
-		deluge
+		qbittorrent
 		git
 
 		# Media.

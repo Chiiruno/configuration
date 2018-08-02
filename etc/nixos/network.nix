@@ -18,12 +18,9 @@
 
 				# Risk of Rain
 				13373
-			];
 
-			# Allow connections from certain port ranges (TCP).
-			allowedTCPPortRanges = [
-				# Deluge
-				{ from = 6881; to = 6889; }
+				# Torrent
+				13374
 			];
 
 			# Allow connections from certain ports (UDP).
@@ -36,12 +33,9 @@
 
 				# Risk of Rain
 				13373
-			];
 
-			# Allow connections from certain port ranges (UDP).
-			allowedUDPPortRanges = [
-				# Deluge
-				{ from = 6881; to = 6889; }
+				# Torrent
+				13374
 			];
 
 			# Extra firewall commands

@@ -48,7 +48,7 @@
 				spawn_arch = "sudo systemd-nspawn -b -M archlinux -D /mnt/containers/archlinux";
 
 				# meguca dev environment.
-				meguca_dev = "export GOPATH=~/go:$GOPATH && nix-shell -p jq go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
+				meguca_dev = "export GOPATH=$GOPATH:~/go && nix-shell -p jq go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
 
 				# Override Mesa OpenGL version to 3.0.
 				mesa_override= "MESA_GL_VERSION_OVERRIDE=3.0";
