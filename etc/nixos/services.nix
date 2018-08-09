@@ -60,9 +60,15 @@
 		# Enable postgresql
 		postgresql = {
 			enable = true;
-			package = pkgs.postgresql96;
+			package = pkgs.postgresql100;
 		};
 
+		# Enable hydron
+		hydron = {
+			enable = true;
+			fetchTags = true;
+			importPaths = [ "/home/okina/Pictures" ];
+		};
 
 		# Enable the X11 server.
 		xserver = {

@@ -63,7 +63,7 @@
 		(wine.override {
 			wineRelease = "unstable";
 			wineBuild = "wineWow";
-			gstreamerSupport = false;
+#			gstreamerSupport = false;
 		})
 
 		# KDE.
