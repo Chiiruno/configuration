@@ -67,7 +67,7 @@
 		hydron = {
 			enable = true;
 			fetchTags = true;
-			importPaths = [ "/home/okina/Pictures" ];
+			importPaths = [ "/mnt/hdd0/home/okina/Pictures" ];
 		};
 
 		# Enable the X11 server.
