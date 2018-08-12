@@ -75,7 +75,6 @@
 		kgpg
 		kmail
 		konversation
-		ksnapshot
 		krename
 		okular
 		spectacle

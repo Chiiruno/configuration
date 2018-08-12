@@ -58,11 +58,11 @@
 		};
 
 		# Enable ZeroNet
-		zeronet = {
-			enable = true;
-			tor = true;
-			port = 13375;
-		};
+#		zeronet = {
+#			enable = true;
+#			tor = true;
+#			port = 13375;
+#		};
 
 		# Enable postgresql
 		postgresql = {
