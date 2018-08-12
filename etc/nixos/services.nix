@@ -8,9 +8,6 @@
 		# Enable printing support.
 		printing.enable = true;
 
-		# Enable postgresql
-		postgresql.package = pkgs.postgresql100;
-
 		# Extra udev rules.
 		udev.extraRules = ''
 			# Let users read GameCube and Wii controllers.
@@ -67,11 +64,18 @@
 #			port = 13375;
 #		};
 
+		# Enable postgresql
+		postgresql = {
+			enable = true;
+			package = pkgs.postgresql100;
+		};
+
 		# Enable hydron
 		hydron = {
 			enable = true;
 			fetchTags = true;
 			importPaths = [ "/mnt/hdd0/home/okina/Pictures" ];
+			interval = "weekly";
 		};
 
 		# Enable the X11 server.

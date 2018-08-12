@@ -65,13 +65,15 @@
 					"networkmanager"
 					"input"
 					"plugdev"
+					"meguca"
+					"hydron"
 				];
 			};
 
-			hydron.extraGroups = [
-				"users"
-				"okina"
-			];
+			hydron = {
+				isSystemUser = true;
+				extraGroups = [ "users" ];
+			};
 		};
 	};
 }
