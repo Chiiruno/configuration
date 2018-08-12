@@ -57,6 +57,13 @@
 			enableGC = true;
 		};
 
+		# Enable ZeroNet
+		zeronet = {
+			enable = true;
+			tor = true;
+			port = 13375;
+		};
+
 		# Enable postgresql
 		postgresql = {
 			enable = true;
