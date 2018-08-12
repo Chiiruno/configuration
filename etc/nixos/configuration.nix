@@ -67,6 +67,11 @@
 					"plugdev"
 				];
 			};
+
+			hydron.extraGroups = [
+				"users"
+				"okina"
+			];
 		};
 	};
 }
