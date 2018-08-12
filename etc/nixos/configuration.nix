@@ -50,7 +50,6 @@
 
 		extraUsers = {
 			meguca.isSystemUser = true;
-			hydron.isSystemUser = true;
 
 			okina = {
 				# $ mkpasswd -m sha-512
