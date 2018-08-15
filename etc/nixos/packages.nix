@@ -75,6 +75,7 @@
 		kmail
 		konversation
 		krename
+		latte-dock
 		okular
 		spectacle
 		gwenview
