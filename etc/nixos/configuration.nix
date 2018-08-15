@@ -29,6 +29,20 @@
 
 	# Nix packages configuration.
 	nixpkgs.config = {
+        packageOverrides = super: with pkgs; rec {
+            qbittorrent = (super.qbittorrent.overrideAttrs (attrs: rec {
+                version = "4.1.2";
+                name = "qbittorrent-${version}";
+
+                src = fetchFromGitHub {
+                    owner = "qbittorrent";
+                    repo = "qbittorrent";
+                    rev = "release-${version}";
+                    sha256 = "1756hr92rvh4xlf6bk2wl24ypczhwf1rv1pdq05flk118jciqb05";
+                };
+            }));
+        };
+
 		allowUnfree = true;
 		pulseaudio = true;
 		icedtea = true;

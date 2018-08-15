@@ -75,6 +75,7 @@
 			enable = true;
 			fetchTags = true;
 			importPaths = [ "/mnt/hdd0/home/okina/Pictures" ];
+			interval = "yearly";
 		};
 
 		# Enable the X11 server.
