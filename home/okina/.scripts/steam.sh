@@ -1,2 +1,2 @@
 #!/bin/sh
-steam
+steam -silent

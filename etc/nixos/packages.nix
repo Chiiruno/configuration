@@ -14,6 +14,7 @@
 		tewisay
 		openssl
 		catfish
+		qt5.qttools
 
 		# Development
 		gcc

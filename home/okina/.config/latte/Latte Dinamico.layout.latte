@@ -2,6 +2,7 @@
 RightButton;NoModifier=org.kde.latte.contextmenu
 
 [Containments][11]
+PreloadWeight=0
 activityId=
 formfactor=2
 immutability=1
@@ -14,41 +15,50 @@ wallpaperplugin=org.kde.image
 immutability=1
 plugin=org.kde.plasma.volume
 
+[Containments][11][Applets][14][Configuration]
+PreloadWeight=0
+
 [Containments][11][Applets][15]
 immutability=1
 plugin=org.kde.plasma.devicenotifier
+
+[Containments][11][Applets][15][Configuration]
+PreloadWeight=0
 
 [Containments][11][Applets][16]
 immutability=1
 plugin=org.kde.plasma.notifications
 
+[Containments][11][Applets][16][Configuration]
+PreloadWeight=4
+
 [Containments][11][Applets][17]
 immutability=1
 plugin=org.kde.plasma.printmanager
+
+[Containments][11][Applets][17][Configuration]
+PreloadWeight=0
 
 [Containments][11][Applets][21]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
+[Containments][11][Applets][21][Configuration]
+PreloadWeight=0
+
 [Containments][11][Applets][22]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
-[Containments][11][Applets][51]
-immutability=1
-plugin=org.kde.discovernotifier
-
-[Containments][11][Applets][75]
-immutability=1
-plugin=org.kde.plasma.vault
-
-[Containments][11][Applets][82]
-immutability=1
-plugin=org.kde.kdeconnect
+[Containments][11][Applets][22][Configuration]
+PreloadWeight=0
 
 [Containments][11][Applets][86]
 immutability=1
 plugin=org.kde.plasma.keyboardindicator
+
+[Containments][11][Applets][86][Configuration]
+PreloadWeight=0
 
 [Containments][11][ConfigDialog]
 DialogHeight=540
@@ -68,6 +78,9 @@ location=5
 plugin=org.kde.plasma.private.systemtray
 wallpaperplugin=org.kde.image
 
+[Containments][20][Configuration]
+PreloadWeight=0
+
 [Containments][20][General]
 extraItems=org.kde.plasma.networkmanagement,org.kde.ktp-contactlist,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.pkupdates,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.discovernotifier
 knownItems=org.kde.plasma.networkmanagement,org.kde.ktp-contactlist,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.pkupdates,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.discovernotifier
@@ -80,6 +93,9 @@ lastScreen=-1
 location=5
 plugin=org.kde.plasma.private.systemtray
 wallpaperplugin=org.kde.image
+
+[Containments][23][Configuration]
+PreloadWeight=0
 
 [Containments][23][General]
 extraItems=org.kde.plasma.networkmanagement,org.kde.ktp-contactlist,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.pkupdates,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.discovernotifier
@@ -94,6 +110,9 @@ location=5
 plugin=org.kde.plasma.private.systemtray
 wallpaperplugin=org.kde.image
 
+[Containments][26][Configuration]
+PreloadWeight=0
+
 [Containments][26][General]
 extraItems=org.kde.plasma.networkmanagement,org.kde.ktp-contactlist,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.pkupdates,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.discovernotifier
 knownItems=org.kde.plasma.networkmanagement,org.kde.ktp-contactlist,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.pkupdates,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.discovernotifier
@@ -106,6 +125,9 @@ lastScreen=-1
 location=5
 plugin=org.kde.plasma.private.systemtray
 wallpaperplugin=org.kde.image
+
+[Containments][27][Configuration]
+PreloadWeight=0
 
 [Containments][27][General]
 extraItems=org.kde.plasma.networkmanagement,org.kde.ktp-contactlist,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.pkupdates,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.discovernotifier
@@ -133,11 +155,15 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][4][Applets][10][Configuration]
+PreloadWeight=92
 SystrayContainmentId=11
 
 [Containments][4][Applets][24]
 immutability=1
 plugin=org.kde.plasma.userswitcher
+
+[Containments][4][Applets][24][Configuration]
+PreloadWeight=34
 
 [Containments][4][Applets][24][Configuration][ConfigDialog]
 DialogHeight=540
@@ -152,7 +178,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][4][Applets][25][Configuration]
-PreloadWeight=55
+PreloadWeight=44
 
 [Containments][4][Applets][25][Configuration][Appearance]
 displayTimezoneAsCode=false
@@ -168,7 +194,7 @@ immutability=1
 plugin=org.kde.plasma.kicker
 
 [Containments][4][Applets][77][Configuration]
-PreloadWeight=100
+PreloadWeight=78
 
 [Containments][4][Applets][77][Configuration][ConfigDialog]
 DialogHeight=540
@@ -193,6 +219,9 @@ DialogWidth=720
 immutability=1
 plugin=org.kde.plasma.taskmanager
 
+[Containments][4][Applets][80][Configuration]
+PreloadWeight=68
+
 [Containments][4][Applets][80][Configuration][ConfigDialog]
 DialogHeight=842
 DialogWidth=720
@@ -208,11 +237,15 @@ wheelEnabled=false
 immutability=1
 plugin=org.kde.plasma.trash
 
+[Containments][4][Applets][81][Configuration]
+PreloadWeight=0
+
 [Containments][4][Applets][87]
 immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][4][Applets][87][Configuration]
+PreloadWeight=0
 localPath=/home/okina/.local/share/plasma_icons/chromium-browser (1).desktop
 url=file:///run/current-system/sw/share/applications/chromium-browser.desktop
 
@@ -221,6 +254,7 @@ immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][4][Applets][88][Configuration]
+PreloadWeight=0
 localPath=/home/okina/.local/share/plasma_icons/org.kde.konsole (1).desktop
 url=file:///run/current-system/sw/share/applications/org.kde.konsole.desktop
 
@@ -229,6 +263,7 @@ immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][4][Applets][89][Configuration]
+PreloadWeight=0
 localPath=/home/okina/.local/share/plasma_icons/org.kde.dolphin.desktop
 url=file:///run/current-system/sw/share/applications/org.kde.dolphin.desktop
 
@@ -237,6 +272,7 @@ immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][4][Applets][90][Configuration]
+PreloadWeight=0
 localPath=/home/okina/.local/share/plasma_icons/code.desktop
 url=file:///run/current-system/sw/share/applications/code.desktop
 
@@ -245,12 +281,16 @@ immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][4][Applets][91][Configuration]
+PreloadWeight=0
 localPath=/home/okina/.local/share/plasma_icons/gimp.desktop
 url=file:///run/current-system/sw/share/applications/gimp.desktop
 
 [Containments][4][ConfigDialog]
 DialogHeight=698
 DialogWidth=450
+
+[Containments][4][Configuration]
+PreloadWeight=0
 
 [Containments][4][General]
 advanced=true
