@@ -42,6 +42,11 @@
 			enablePepperFlash = true;
 			enablePepperPDF = true;
 		};
+
+		wine = {
+			release = "unstable";
+			build = "wineWow";
+		};
 	};
 
 	# User configuration.

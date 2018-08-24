@@ -21,6 +21,7 @@
 		go
 		nodejs
 		vscode-with-extensions
+		git
 
 		# Compression.
 		p7zip
@@ -31,8 +32,10 @@
 		# Internet
 		firefox
 		chromium
+		midori
+		palemoon
+		elinks
 		qbittorrent
-		git
 
 		# Media.
 		mpd
@@ -60,11 +63,7 @@
 		mupen64plus
 		desmume
 		citra
-
-		(wine.override {
-			wineRelease = "unstable";
-			wineBuild = "wineWow";
-		})
+		wine
 
 		# KDE.
 		ark
