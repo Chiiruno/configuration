@@ -49,7 +49,7 @@
 
 		# Games.
 		steam
-		steam-run-native
+		steam-run
 		openmw
 		minecraft
 		multimc

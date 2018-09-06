@@ -24,6 +24,7 @@
 
 				# ZeroNet
 				13375
+				15441
 			];
 
 			# Allow connections from certain ports (UDP).
@@ -42,6 +43,7 @@
 
 				# ZeroNet
 				13375
+				15441
 			];
 
 			# Extra firewall commands

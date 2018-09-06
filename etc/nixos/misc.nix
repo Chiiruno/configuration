@@ -7,6 +7,16 @@
 	# Set your time zone.
 	time.timeZone = "America/Chicago";
 
+	# Set limits for esync.
+	systemd.extraConfig = "DefaultLimitNOFILE=1048576";
+
+	security.pam.loginLimits = [{
+		domain = "*";
+		type = "hard";
+		item = "nofile";
+		value = "1048576";
+	}];
+
 	# Hardware configuration.
 	hardware = {
 		# Enable updating the AMD microcode.
