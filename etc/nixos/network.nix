@@ -21,10 +21,6 @@
 
 				# Torrent
 				13374
-
-				# ZeroNet
-				13375
-				15441
 			];
 
 			# Allow connections from certain ports (UDP).
@@ -40,10 +36,6 @@
 
 				# Torrent
 				13374
-
-				# ZeroNet
-				13375
-				15441
 			];
 
 			# Extra firewall commands
