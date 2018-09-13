@@ -49,10 +49,6 @@
 			enable = true;						# 9050, 9063, 8118
 			client.enable = true;
 			torsocks.enable = true;
-			extraConfig = ''
-				CacheDirectoryGroupReadable 1
-				CookieAuthFileGroupReadable 1
-			'';
 		};
 
 		# Enable IPFS.
@@ -65,7 +61,7 @@
 		zeronet = {
 			enable = true;
 			tor = true;
-			extraConfig = "tor = always";
+			torAlways = true;
 		};
 
 		# Enable postgresql
