@@ -72,6 +72,10 @@
 					"plugdev"
 					"meguca"
 					"hydron"
+					"adbusers"
+					"libvirtd"
+					"kvm"
+					"video"
 				];
 			};
 

@@ -15,6 +15,13 @@
 		openssl
 		catfish
 		qt5.qttools
+		ebtables
+		dnsmasq
+		bridge-utils
+		netcat-openbsd
+		virtmanager
+		barrier
+		woeusb
 
 		# Development
 		gcc

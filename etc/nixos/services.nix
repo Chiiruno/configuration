@@ -8,6 +8,15 @@
 		# Enable printing support.
 		printing.enable = true;
 
+		# Enable Samba.
+		samba.enable = true;
+
+		# Enable TPM
+#		tcsd.enable = true;
+
+		# Enable GeoClue2
+		geoclue2.enable = true;
+
 		# Extra udev rules.
 		udev.extraRules = ''
 			# Let users read GameCube and Wii controllers.

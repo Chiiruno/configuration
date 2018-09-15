@@ -54,6 +54,15 @@
 		kernelModules = [
 			"kvm-amd"
 			"nct6775"
+			"vfio"
+			"vfio_pci"
+			"vfio_virqfd"
+			"vfio_iommu_type1"
 		];
+
+		# Extra modprobe config.
+		extraModprobeConfig = ''
+			options vhost_net experimental_zcopytx=1
+		'';
 	};
 }

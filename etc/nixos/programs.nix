@@ -7,6 +7,12 @@
 		# Enable Java.
 		java.enable = true;
 
+		# Enable the Android Debug Bridge
+		adb.enable = true;
+
+		# Enable dconf
+		dconf.enable = true;
+
 		# Zsh configuration.
 		zsh = {
 			enable = true;

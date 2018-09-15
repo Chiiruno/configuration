@@ -17,6 +17,22 @@
 		value = "1048576";
 	}];
 
+	# Virtualization configuration.
+	virtualisation = {
+		hypervGuest.enable = true;
+
+		libvirtd = {
+			enable = true;
+
+			qemuVerbatimConfig = ''
+				namespaces = []
+				user = "okina"
+				nographics_allow_host_audio = 1
+				max_files = 2048
+			'';
+		};
+	};
+
 	# Hardware configuration.
 	hardware = {
 		# Enable updating the AMD microcode.
