@@ -24,38 +24,9 @@
 			SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0aa7", TAG+="uaccess"
 		'';
 
-		# Enable Prixoxy.
-		privoxy = {
-			enable = true;						# 8118
-
-			extraConfig = ''
-				forward-socks5 / 127.0.0.1:9063 .
-				forward .i2p 127.0.0.1:4444
-			'';
-		};
-
-		# Enable I2P.
-		i2pd = {
-			enable = true;
-			bandwidth = 14000;
-			enableIPv6 = true;
-			port = 13372;
-			upnp.enable = true;
-
-			proto = {
-				bob.enable = true;				# 2827
-				http.enable = true;				# 7070
-				httpProxy.enable = true;		# 4444
-				i2cp.enable = true;				# 7654
-				i2pControl.enable = true;		# 7650
-				sam.enable = true;				# 7656
-				socksProxy.enable = true;		# 4447
-			};
-		};
-
 		# Enable TOR.
 		tor = {
-			enable = true;						# 9050, 9063, 8118
+			enable = true;	# 9050, 9063, 8118
 			client.enable = true;
 			torsocks.enable = true;
 		};

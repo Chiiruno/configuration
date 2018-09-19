@@ -21,14 +21,13 @@
 		netcat-openbsd
 		virtmanager
 		barrier
-		woeusb
 
 		# Development
+		git
 		gcc
 		go
 		nodejs
 		vscode-with-extensions
-		git
 
 		# Compression.
 		p7zip
@@ -37,10 +36,8 @@
 		unar
 
 		# Internet
-		firefox
 		chromium
 		midori
-		palemoon
 		elinks
 		qbittorrent
 
@@ -57,13 +54,9 @@
 		# Games.
 		steam
 		steam-run
-		openmw
-		minecraft
 		multimc
-		armagetronad
 
 		# Emulation.
-		(lowPrio dolphinEmu)
 		dolphinEmuMaster
 		snes9x-gtk
 		mgba
@@ -86,6 +79,5 @@
 		okular
 		spectacle
 		gwenview
-		redshift-plasma-applet
 	];
 }

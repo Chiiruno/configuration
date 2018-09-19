@@ -21,22 +21,16 @@
 
 	# Nix configuration.
 	nix = {
-		maxJobs = 16;
-		buildCores = 0;
 		autoOptimiseStore = true;
 		useSandbox = true;
+		maxJobs = 16;
+		buildCores = 0;
 	};
 
 	# Nix packages configuration.
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
-		icedtea = true;
-
-		firefox = {
-			enableGoogleTalkPlugin = true;
-			enableAdobeFlash = true;
-		};
 
 		chromium = {
 			enablePepperFlash = true;
@@ -57,12 +51,12 @@
 			meguca.isSystemUser = true;
 
 			okina = {
-				# $ mkpasswd -m sha-512
-				initialHashedPassword = "$6$2eZF5D9poF$0cDC37zn4bzmdiSZDsVIh1pqHjJov67N8GyTPUxgKMq6VOv/ahgr1657b3S/UxJm0p9KkYsbSFOGuBTSRSv6T0";
 				isNormalUser = true;
 				uid = 1000;
 				home = "/home/okina";
 				description = "隠岐奈";
+				# $ mkpasswd -m sha-512
+				initialHashedPassword = "$6$2eZF5D9poF$0cDC37zn4bzmdiSZDsVIh1pqHjJov67N8GyTPUxgKMq6VOv/ahgr1657b3S/UxJm0p9KkYsbSFOGuBTSRSv6T0";
 
 				extraGroups = [
 					"wheel"

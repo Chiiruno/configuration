@@ -16,15 +16,17 @@
 
 			# Use the GRUB boot loader.
 			grub = {
-				device = "nodev";
 				efiSupport = true;
 				enableCryptodisk = true;
-				extraInitrd = "/root/crypto/root.cpio.gz";
+				device = "nodev";
 			};
 		};
 
 		# Initial ram disk configuration.
 		initrd = {
+			# Append root keyfile to initrd.
+			secrets."/root/crypto/root.key" = /root/crypto/root.key;
+
 			# Available kernel modules for the initrd to mount root.
 			availableKernelModules = [
 				"nvme"
@@ -37,9 +39,9 @@
 
 			# Unlock the root partition.
 			luks.devices."cryptroot" = {
-				device = "/dev/disk/by-uuid/3d83d63f-449e-4e75-8225-dbba6fffa831";
 				allowDiscards = true;
-				keyFile = "/root.key";
+				device = "/dev/disk/by-uuid/3d83d63f-449e-4e75-8225-dbba6fffa831";
+				keyFile = "/root/crypto/root.key";
 			};
 		};
 
@@ -60,8 +62,15 @@
 			"vfio_iommu_type1"
 		];
 
+		# Disable some kernel modules.
+		blacklistedKernelModules = [
+			"nouveau"
+			"nvidia"
+		];
+
 		# Extra modprobe config.
 		extraModprobeConfig = ''
+			options vfio-pci ids=10de:0fc1,10de:0e1b
 			options vhost_net experimental_zcopytx=1
 		'';
 	};
