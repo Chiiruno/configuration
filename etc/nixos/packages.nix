@@ -27,6 +27,7 @@
 		gcc
 		go
 		nodejs
+		rustup
 		vscode-with-extensions
 
 		# Compression.

@@ -31,12 +31,6 @@
 			torsocks.enable = true;
 		};
 
-		# Enable IPFS.
-		ipfs = {
-			enable = true;
-			enableGC = true;
-		};
-
 		# Enable ZeroNet
 		zeronet = {
 			enable = true;
