@@ -3,7 +3,7 @@
 {
 	# Boot configuration.
 	boot = {
-		# Linux kernel version to use.
+		# Kernel version to use.
 		kernelPackages = pkgs.linuxPackages_latest;
 
 		# Boot loader configuration.
@@ -56,22 +56,6 @@
 		kernelModules = [
 			"kvm-amd"
 			"nct6775"
-			"vfio"
-			"vfio_pci"
-			"vfio_virqfd"
-			"vfio_iommu_type1"
 		];
-
-		# Disable some kernel modules.
-		blacklistedKernelModules = [
-			"nouveau"
-			"nvidia"
-		];
-
-		# Extra modprobe config.
-		extraModprobeConfig = ''
-			options vfio-pci ids=10de:0fc1,10de:0e1b
-			options vhost_net experimental_zcopytx=1
-		'';
 	};
 }

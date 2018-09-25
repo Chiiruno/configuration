@@ -7,9 +7,6 @@
 		# Enable Java.
 		java.enable = true;
 
-		# Enable the Android Debug Bridge
-		adb.enable = true;
-
 		# Enable dconf
 		dconf.enable = true;
 
@@ -33,10 +30,10 @@
 				nrebuild = "sudo nixos-rebuild switch";
 
 				# Upgrade the system.
-				nupgrade = "sudo nix-channel --update && sudo nixos-rebuild switch";
+				nupgrade = "sudo nixos-rebuild switch --upgrade";
 
 				# Upgrade the system. (boot)
-				nboot = "sudo nix-channel --update && sudo nixos-rebuild boot";
+				nboot = "sudo nixos-rebuild boot --upgrade";
 
 				# Collect garbage.
 				ncollect = "sudo nix-collect-garbage -d";
@@ -50,10 +47,7 @@
 				# Fix sound.
 				fixsound = "pacmd load-module module-alsa-sink device=hw:$(aplay -l | grep \"SteelSeries Arctis 7\" | grep \"USB Audio \#1\" | cut -c 6),1";
 
-				# Spawn Arch Linux instance.
-				spawn_arch = "sudo systemd-nspawn -b -M archlinux -D /mnt/containers/archlinux";
-
-				# meguca dev environment.
+				# Meguca dev environment.
 				meguca_dev = "PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
 
 				# Override Mesa OpenGL version to 3.0.

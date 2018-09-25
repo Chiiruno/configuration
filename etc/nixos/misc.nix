@@ -18,19 +18,15 @@
 	}];
 
 	# Virtualization configuration.
-	virtualisation = {
-		hypervGuest.enable = true;
+	virtualisation.libvirtd = {
+		enable = true;
 
-		libvirtd = {
-			enable = true;
-
-			qemuVerbatimConfig = ''
-				namespaces = []
-				user = "okina"
-				nographics_allow_host_audio = 1
-				max_files = 2048
-			'';
-		};
+		qemuVerbatimConfig = ''
+			namespaces = []
+			user = "okina"
+			nographics_allow_host_audio = 1
+			max_files = 2048
+		'';
 	};
 
 	# Hardware configuration.

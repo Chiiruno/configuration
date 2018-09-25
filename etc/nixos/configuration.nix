@@ -37,6 +37,11 @@
 			enablePepperPDF = true;
 		};
 
+		firefox = {
+			enableGoogleTalkPlugin = true;
+			enableAdobeFlash = true;
+		};
+
 		wine = {
 			release = "unstable";
 			build = "wineWow";
@@ -66,7 +71,6 @@
 					"plugdev"
 					"meguca"
 					"hydron"
-					"adbusers"
 					"libvirtd"
 					"kvm"
 					"video"

@@ -8,13 +8,13 @@
 			# Allow connections from certain ports (TCP).
 			allowedTCPPorts = [
 				# Besiege
-				7777
+#				7777
 
 				# Perfect Dark
 				13371
 
 				# I2P
-				13372
+#				13372
 
 				# Risk of Rain
 				13373
@@ -26,10 +26,10 @@
 			# Allow connections from certain ports (UDP).
 			allowedUDPPorts = [
 				# Besiege
-				7777
+#				7777
 
 				# I2P
-				13372
+#				13372
 
 				# Risk of Rain
 				13373

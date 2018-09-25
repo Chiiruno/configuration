@@ -11,11 +11,11 @@
 		# Enable Samba.
 		samba.enable = true;
 
-		# Enable TPM
-#		tcsd.enable = true;
-
 		# Enable GeoClue2
 		geoclue2.enable = true;
+
+		# Enable AccountsService.
+		accounts-daemon.enable = true;
 
 		# Extra udev rules.
 		udev.extraRules = ''
@@ -56,8 +56,17 @@
 			# Enable the X11 windowing system.
 			enable = true;
 
+			# Enable the Glamor module.
+			useGlamor = true;
+
+			# Update the DBus activation environment.
+			updateDbusEnvironment = true;
+
 			# Enable the KDE Desktop Environment.
 			desktopManager.plasma5.enable = true;
+
+			# Video drivers.
+			videoDrivers = [ "amdgpu" ];
 
 			# Enable the display manager.
 			displayManager.sddm = {

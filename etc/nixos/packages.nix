@@ -12,15 +12,14 @@
 		neofetch
 		scrot
 		tewisay
-		openssl
 		catfish
-		qt5.qttools
 		ebtables
 		dnsmasq
 		bridge-utils
 		netcat-openbsd
 		virtmanager
 		barrier
+		qt5.qttools
 
 		# Development
 		git
@@ -38,6 +37,7 @@
 
 		# Internet
 		chromium
+		firefox
 		midori
 		elinks
 		qbittorrent
