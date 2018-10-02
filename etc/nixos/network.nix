@@ -7,35 +7,20 @@
 		firewall = {
 			# Allow connections from certain ports (TCP).
 			allowedTCPPorts = [
-				# Besiege
-#				7777
-
-				# Perfect Dark
-				13371
-
-				# I2P
-#				13372
-
-				# Risk of Rain
-				13373
-
 				# Torrent
-				13374
+				13370
+
+				# ZeroNet
+				15441
 			];
 
 			# Allow connections from certain ports (UDP).
 			allowedUDPPorts = [
-				# Besiege
-#				7777
-
-				# I2P
-#				13372
-
-				# Risk of Rain
-				13373
-
 				# Torrent
-				13374
+				13370
+
+				# ZeroNet
+				15441
 			];
 
 			# Extra firewall commands
