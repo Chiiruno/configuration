@@ -74,6 +74,7 @@
 					"libvirtd"
 					"kvm"
 					"video"
+					"lp"
 				];
 			};
 
