@@ -34,15 +34,8 @@
 		# Enable updating the AMD microcode.
 		cpu.amd.updateMicrocode = true;
 
-		# Bluetooth configuration.
-		bluetooth = {
-			enable = true;
-
-			extraConfig = ''
-				[General]
-				Enable=Source,Sink,Media,Socket
-			'';
-		};
+		# Enable bluetooth.
+		bluetooth.enable = true;
 
 		# OpenGL configuration.
 		opengl = {
