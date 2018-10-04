@@ -44,9 +44,6 @@
 				# 32-bit WINE.
 				wine32 = "WINEARCH=win32 WINEPREFIX=~/.wine32";
 
-				# Fix sound.
-				fixsound = "pacmd load-module module-alsa-sink device=hw:$(aplay -l | grep \"SteelSeries Arctis 7\" | grep \"USB Audio \#1\" | cut -c 6),1";
-
 				# Meguca dev environment.
 				meguca_dev = "PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
 
