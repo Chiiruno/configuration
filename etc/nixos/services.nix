@@ -65,9 +65,6 @@
 			# Enable the KDE Desktop Environment.
 			desktopManager.plasma5.enable = true;
 
-			# Video drivers.
-			videoDrivers = [ "amdgpu" ];
-
 			# Enable the display manager.
 			displayManager.sddm = {
 				enable = true;
