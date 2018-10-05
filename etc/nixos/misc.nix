@@ -37,6 +37,9 @@
 		# Enable bluetooth.
 		bluetooth.enable = true;
 
+		# Enable Steam controllers.
+		steam-hardware.enable = true;
+
 		# OpenGL configuration.
 		opengl = {
 			driSupport32Bit = true;
