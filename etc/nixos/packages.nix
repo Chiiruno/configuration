@@ -6,7 +6,6 @@
 	environment.systemPackages = with pkgs; [
 		# Utilities.
 		lm_sensors
-		alsaUtils
 		gnupg
 		winetricks
 		neofetch

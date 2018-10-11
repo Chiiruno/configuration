@@ -1,16 +1,9 @@
 {
-	# Program configuration.
 	programs = {
-		# Enable the GPG agent.
+		dconf.enable = true;
 		gnupg.agent.enable = true;
-
-		# Enable Java.
 		java.enable = true;
 
-		# Enable dconf
-		dconf.enable = true;
-
-		# Zsh configuration.
 		zsh = {
 			enable = true;
 			enableCompletion = true;
@@ -19,12 +12,14 @@
 			promptInit = "autoload -U promptinit && promptinit && prompt adam1";
 
 			shellAliases = {
-				# Enable ls to color output.
+				# Let ls color output.
 				ls = "ls --color=auto";
+
 				# List attributes.
-				ll = "ls -l";
+				ll = "ls -l --color=auto";
+
 				# List hidden files too.
-				l = "ll -a";
+				l = "ll -a --color=auto";
 
 				# Rebuild the system.
 				nrebuild = "sudo nixos-rebuild switch";
@@ -44,7 +39,7 @@
 				# 32-bit WINE.
 				wine32 = "WINEARCH=win32 WINEPREFIX=~/.wine32";
 
-				# Meguca dev environment.
+				# Meguca development environment.
 				meguca_dev = "PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
 
 				# Override Mesa OpenGL version to 3.0.
@@ -52,7 +47,6 @@
 			};
 		};
 
-		# Nano configuration.
 		nano = {
 			syntaxHighlight = true;
 
