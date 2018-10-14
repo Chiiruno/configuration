@@ -10,7 +10,6 @@
 		./boot.nix
 		./hardware-configuration.nix
 		./misc.nix
-		./mount.nix
 		./network.nix
 		./packages.nix
 		./programs.nix

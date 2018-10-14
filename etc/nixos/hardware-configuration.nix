@@ -8,59 +8,54 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b5b12b1b-c675-40e9-939a-9ab880cb4488";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
+    { device = "/dev/mapper/cryptroot";
+      fsType = "bcachefs";
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/3d83d63f-449e-4e75-8225-dbba6fffa831";
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/3e0248bf-1b64-4c92-968e-f7b373e4e244";
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/b5b12b1b-c675-40e9-939a-9ab880cb4488";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/9b57cb8f-d427-4892-9451-5cac542e39f9";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
+      options = [ "subvol=@boot" ];
     };
 
-  fileSystems."/.snapshots" =
-    { device = "/dev/disk/by-uuid/b5b12b1b-c675-40e9-939a-9ab880cb4488";
-      fsType = "btrfs";
-      options = [ "subvol=@snapshots" ];
-    };
-
-  fileSystems."/mnt" =
-    { device = "/dev/disk/by-uuid/b5b12b1b-c675-40e9-939a-9ab880cb4488";
-      fsType = "btrfs";
-      options = [ "subvol=@mnt" ];
-    };
+  boot.initrd.luks.devices."cryptboot".device = "/dev/disk/by-uuid/84cdcfe6-c2dd-4f3f-9699-9d9cd2193df7";
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/E3CC-991E";
+    { device = "/dev/disk/by-uuid/CF55-5C64";
       fsType = "vfat";
     };
 
   fileSystems."/mnt/ssd0" =
-    { device = "/dev/disk/by-uuid/4176eb7d-65d2-4335-985c-fab68c3f254a";
-      fsType = "btrfs";
-      options = [ "subvol=@ssd0" ];
+    { device = "/dev/mapper/cryptssd0";
+      fsType = "bcachefs";
     };
+
+  boot.initrd.luks.devices."cryptssd0".device = "/dev/disk/by-uuid/ea621ba1-a1fa-4d3a-8eb3-178f7aaad84c";
+
+  fileSystems."/mnt/ssd1" =
+    { device = "/dev/mapper/cryptssd1";
+      fsType = "bcachefs";
+    };
+
+  boot.initrd.luks.devices."cryptssd1".device = "/dev/disk/by-uuid/37c55c40-648b-4c4d-b2f4-3d82fbb37e6a";
 
   fileSystems."/mnt/hdd1" =
-    { device = "/dev/disk/by-uuid/7cbe8a84-63a2-4886-ab73-d755680fe35d";
-      fsType = "btrfs";
-      options = [ "subvol=@hdd1" ];
+    { device = "/dev/mapper/crypthdd1";
+      fsType = "bcachefs";
     };
 
-  fileSystems."/mnt/hdd0" =
-    { device = "/dev/disk/by-uuid/2bebbd57-0784-44ba-b6c9-8b5a6958e8e7";
-      fsType = "btrfs";
-      options = [ "subvol=@hdd0" ];
-    };
+  boot.initrd.luks.devices."crypthdd1".device = "/dev/disk/by-uuid/519b45bd-021b-418d-925e-786b83790967";
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/30108695-39f3-4022-87b4-2b8caa6e63e0"; }
+    ];
 
   nix.maxJobs = lib.mkDefault 16;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }

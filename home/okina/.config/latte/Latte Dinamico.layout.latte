@@ -16,7 +16,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][11][Applets][14][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][11][Applets][14][Configuration][ConfigDialog]
 DialogHeight=540
@@ -159,7 +159,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][4][Applets][10][Configuration]
-PreloadWeight=52
+PreloadWeight=100
 SystrayContainmentId=11
 
 [Containments][4][Applets][24]
@@ -198,7 +198,7 @@ immutability=1
 plugin=org.kde.plasma.kicker
 
 [Containments][4][Applets][77][Configuration]
-PreloadWeight=85
+PreloadWeight=100
 
 [Containments][4][Applets][77][Configuration][ConfigDialog]
 DialogHeight=540
@@ -244,22 +244,13 @@ plugin=org.kde.plasma.trash
 [Containments][4][Applets][81][Configuration]
 PreloadWeight=0
 
-[Containments][4][Applets][87]
-immutability=1
-plugin=org.kde.plasma.icon
-
-[Containments][4][Applets][87][Configuration]
-PreloadWeight=0
-localPath=/home/okina/.local/share/plasma_icons/chromium-browser (1).desktop
-url=file:///run/current-system/sw/share/applications/chromium-browser.desktop
-
 [Containments][4][Applets][88]
 immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][4][Applets][88][Configuration]
 PreloadWeight=0
-localPath=/home/okina/.local/share/plasma_icons/org.kde.konsole (1).desktop
+localPath=/home/okina/.local/share/plasma_icons/org.kde.konsole.desktop
 url=file:///run/current-system/sw/share/applications/org.kde.konsole.desktop
 
 [Containments][4][Applets][89]
@@ -289,16 +280,24 @@ PreloadWeight=0
 localPath=/home/okina/.local/share/plasma_icons/gimp.desktop
 url=file:///run/current-system/sw/share/applications/gimp.desktop
 
+[Containments][4][Applets][92]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][4][Applets][92][Configuration]
+localPath=/home/okina/.local/share/plasma_icons/firefox.desktop
+url=file:///run/current-system/sw/share/applications/firefox.desktop
+
 [Containments][4][ConfigDialog]
 DialogHeight=698
-DialogWidth=450
+DialogWidth=601
 
 [Containments][4][Configuration]
 PreloadWeight=0
 
 [Containments][4][General]
 advanced=true
-appletOrder=77;87;88;89;90;91;80;10;25;24;81
+appletOrder=77;92;88;89;90;91;80;10;25;24;81
 iconSize=40
 panelSize=100
 panelTransparency=95
@@ -312,7 +311,7 @@ activities=
 background=
 color=red
 disableBordersForMaximizedWindows=false
-lastUsedActivity=9e5efcd3-17c2-4a44-a2b2-bd2cc2738a9d
+lastUsedActivity=8506823d-f5cc-477d-b9e8-872b4597e3c6
 launchers=
 showInMenu=true
 textColor=fcfcfc
