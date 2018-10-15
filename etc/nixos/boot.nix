@@ -32,6 +32,7 @@ in {
 
 			# Unlock the encrypted partitions.
 			luks.devices = {
+				"crypthdd0".keyFile = key;
 				"crypthdd1".keyFile = key;
 
 				"cryptboot" = {
@@ -67,6 +68,7 @@ in {
 		"/".label = "root";
 		"/mnt/ssd0".label = "ssd0";
 		"/mnt/ssd1".label = "ssd1";
+		"/mnt/hdd0".label = "hdd0";
 		"/mnt/hdd1".label = "hdd1";
 
 		"/boot" = {
