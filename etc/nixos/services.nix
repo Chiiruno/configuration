@@ -34,7 +34,7 @@
 		hydron = {
 			enable = true;
 			fetchTags = true;
-			importPaths = [ "/mnt/hdd0/home/okina/Pictures" ];
+			importPaths = [ "/mnt/hdd1/home/okina/Pictures" ];
 		};
 
 		xserver = {
@@ -55,8 +55,8 @@
 				MatchIsJoystick	"on"
 				MatchDevicePath	"/dev/input/event*"
 				Driver			"joystick"
-				Option			"StartKeysEnabled"  "False"	# Disable the mouse
-				Option			"StartMouseEnabled" "False"	# Support
+				Option			"StartKeysEnabled"  "False"	# Support
+				Option			"StartMouseEnabled" "False"	# Disable the mouse
 			''];
 		};
 

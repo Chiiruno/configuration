@@ -1,8 +1,8 @@
 {
 	programs = {
 		dconf.enable = true;
-		gnupg.agent.enable = true;
 		java.enable = true;
+		gnupg.agent.enable = true;
 
 		zsh = {
 			enable = true;
