@@ -8,6 +8,9 @@
 				# Torrent
 				13370
 
+				# Risk of Rain
+				13379
+
 				# ZeroNet
 				15441
 			];
@@ -15,6 +18,9 @@
 			allowedUDPPorts = [
 				# Torrent
 				13370
+
+				# Risk of Rain
+				13379
 
 				# ZeroNet
 				15441
