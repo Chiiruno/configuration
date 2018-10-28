@@ -8,6 +8,12 @@
 				# Torrent
 				13370
 
+				# Terraria
+				13377
+
+				# Minecraft
+				13378
+
 				# Risk of Rain
 				13379
 
@@ -18,6 +24,12 @@
 			allowedUDPPorts = [
 				# Torrent
 				13370
+
+				# Terraria
+				13377
+
+				# Minecraft
+				13378
 
 				# Risk of Rain
 				13379
