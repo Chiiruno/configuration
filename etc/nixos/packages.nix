@@ -52,8 +52,8 @@
 		soundfont-fluid
 
 		# Games.
-		steam
-		steam-run
+#		steam
+#		steam-run
 		multimc
 
 		# Emulation.

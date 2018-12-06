@@ -40,7 +40,7 @@
 				wine32 = "WINEARCH=win32 WINEPREFIX=~/.wine32";
 
 				# Meguca development environment.
-				meguca_dev = "PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript";
+				meguca_dev = "GOPATH=~/go PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript opencv";
 
 				# Override Mesa OpenGL version to 3.0.
 				mesa_override = "MESA_GL_VERSION_OVERRIDE=3.0";

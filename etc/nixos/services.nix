@@ -28,12 +28,13 @@
 
 		postgresql = {
 			enable = true;
-			package = pkgs.postgresql100;
+			package = pkgs.postgresql_10;
 		};
 
 		hydron = {
 			enable = true;
 			fetchTags = true;
+			interval = "monthly";
 			importPaths = [ "/mnt/hdd1/home/okina/Pictures" ];
 		};
 
@@ -62,7 +63,9 @@
 
 		redshift = {
 			enable = true;
-			provider = "geoclue2";
+			latitude = "----";
+			longitude = "----";
+#			provider = "geoclue2";
 		};
 	};
 
