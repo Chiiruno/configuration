@@ -18,6 +18,7 @@
 		netcat-openbsd
 		virtmanager
 		barrier
+		flashplayer-standalone
 		qt5.qttools
 
 		# Development
@@ -52,8 +53,8 @@
 		soundfont-fluid
 
 		# Games.
-#		steam
-#		steam-run
+		steam
+		steam-run
 		multimc
 
 		# Emulation.
