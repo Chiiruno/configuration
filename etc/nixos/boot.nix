@@ -2,9 +2,8 @@ let
 	key = "/etc/crypto/drive.key";
 in {
 	boot = {
-#		plymouth.enable = true;
+		plymouth.enable = true;
 		kernelModules = [ "nct6775" ];
-		supportedFilesystems = [ "bcachefs" ];
 
 		kernelParams = [
 			"amd_iommu=on"
@@ -26,27 +25,32 @@ in {
 		};
 
 		initrd = {
-			# Append keyfile to initrd.
+			# Append keyfiles to initrd.
+			secrets."/etc/crypto/root.key" = /etc/crypto/root.key;
 			secrets."/etc/crypto/drive.key" = /etc/crypto/drive.key;
-			supportedFilesystems = [ "bcachefs" ];
 
 			# Unlock the encrypted partitions.
 			luks.devices = {
 				"crypthdd0".keyFile = key;
 				"crypthdd1".keyFile = key;
 
-				"cryptboot" = {
-					allowDiscards = true;
-					keyFile = key;
-				};
-
 				"cryptswap" = {
-					device = "/dev/disk/by-uuid/85396222-b178-49f1-92d2-76d0020a36e6";
+					device = "/dev/disk/by-uuid/9666ab7d-6c7c-448f-8a34-8d0beefb055f";
 					allowDiscards = true;
 					keyFile = key;
 				};
 
 				"cryptroot" = {
+					allowDiscards = true;
+					keyFile = "/etc/crypto/root.key";
+				};
+
+				"cryptboot" = {
+					allowDiscards = true;
+					keyFile = key;
+				};
+
+				"cryptvirt" = {
 					allowDiscards = true;
 					keyFile = key;
 				};
@@ -65,11 +69,32 @@ in {
 	};
 
 	fileSystems = {
-		"/".label = "root";
-		"/mnt/ssd0".label = "ssd0";
-		"/mnt/ssd1".label = "ssd1";
-		"/mnt/hdd0".label = "hdd0";
-		"/mnt/hdd1".label = "hdd1";
+		"/" = {
+			label = "root";
+
+			options = [
+				"discard"
+				"compress=zstd"
+			];
+		};
+
+		"/.snapshots" = {
+			label = "snapshots";
+
+			options = [
+				"discard"
+				"compress=zstd"
+			];
+		};
+
+		"/home" = {
+			label = "home";
+
+			options = [
+				"discard"
+				"compress=zstd"
+			];
+		};
 
 		"/boot" = {
 			label = "boot";
@@ -80,9 +105,46 @@ in {
 			];
 		};
 
+		"/virt" = {
+			label = "virt";
+
+			options = [
+				"discard"
+				"nodatacow"
+			];
+		};
+
 		"/boot/efi" = {
 			label = "uefi";
 			options = [ "discard" ];
+		};
+
+		"/mnt/ssd0" = {
+			label = "ssd0";
+
+			options = [
+				"discard"
+				"compress=zstd"
+			];
+		};
+
+		"/mnt/ssd1" = {
+			label = "ssd1";
+
+			options = [
+				"discard"
+				"nodatacow"
+			];
+		};
+
+		"/mnt/hdd0" = {
+			label = "hdd0";
+			options = [ "compress=zstd" ];
+		};
+
+		"/mnt/hdd1" = {
+			label = "hdd1";
+			options = [ "compress=zstd" ];
 		};
 	};
 }

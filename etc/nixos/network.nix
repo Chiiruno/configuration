@@ -7,35 +7,11 @@
 			allowedTCPPorts = [
 				# Torrent
 				13370
-
-				# Terraria
-				13377
-
-				# Minecraft
-				13378
-
-				# Risk of Rain
-				13379
-
-				# ZeroNet
-				15441
 			];
 
 			allowedUDPPorts = [
 				# Torrent
 				13370
-
-				# Terraria
-				13377
-
-				# Minecraft
-				13378
-
-				# Risk of Rain
-				13379
-
-				# ZeroNet
-				15441
 			];
 
 			extraCommands = ''

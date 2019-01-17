@@ -34,7 +34,7 @@
 		hydron = {
 			enable = true;
 			fetchTags = true;
-			interval = "monthly";
+			interval = "daily";
 			importPaths = [ "/mnt/hdd1/home/okina/Pictures" ];
 		};
 
@@ -63,9 +63,7 @@
 
 		redshift = {
 			enable = true;
-			latitude = "----";
-			longitude = "----";
-#			provider = "geoclue2";
+			provider = "geoclue2";
 		};
 	};
 

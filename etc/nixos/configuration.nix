@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 
 {
-	system.stateVersion = "19.03";
+	system.stateVersion = "unstable";
 
 	imports = [
 		./boot.nix
@@ -26,19 +26,9 @@
 		allowUnfree = true;
 		pulseaudio = true;
 
-		chromium = {
-			enablePepperFlash = true;
-			enablePepperPDF = true;
-		};
-
 		firefox = {
 			enableGoogleTalkPlugin = true;
 			enableAdobeFlash = true;
-		};
-
-		wine = {
-			release = "unstable";
-			build = "wineWow";
 		};
 	};
 

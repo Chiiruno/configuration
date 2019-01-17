@@ -7,7 +7,6 @@
 		# Utilities.
 		lm_sensors
 		gnupg
-		winetricks
 		neofetch
 		scrot
 		tewisay
@@ -18,7 +17,6 @@
 		netcat-openbsd
 		virtmanager
 		barrier
-		flashplayer-standalone
 		qt5.qttools
 
 		# Development
@@ -36,11 +34,11 @@
 		unar
 
 		# Internet
-		chromium
 		firefox
 		midori
 		elinks
 		qbittorrent
+		qtox
 
 		# Media.
 		mpd
@@ -54,21 +52,16 @@
 
 		# Games.
 		steam
-		steam-run
 		multimc
 
 		# Emulation.
 		dolphinEmuMaster
 		snes9x-gtk
 		mgba
-		mupen64plus
-		desmume
-		citra
 		wine
 
 		# KDE.
 		ark
-		falkon
 		ffmpegthumbs
 		kate
 		kcalc
