@@ -3,6 +3,7 @@ let
 in {
 	boot = {
 		plymouth.enable = true;
+		kernelPackages = pkgs.linuxPackages_latest;
 		kernelModules = [ "nct6775" ];
 
 		kernelParams = [
