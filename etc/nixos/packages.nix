@@ -17,6 +17,7 @@
 		netcat-openbsd
 		virtmanager
 		barrier
+		openssl
 		qt5.qttools
 
 		# Development
@@ -59,6 +60,7 @@
 		snes9x-gtk
 		mgba
 		wine
+		looking-glass-client
 
 		# KDE.
 		ark

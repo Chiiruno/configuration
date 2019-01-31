@@ -12,15 +12,30 @@
 		value = "1048576";
 	}];
 
-	virtualisation.libvirtd = {
-		enable = true;
+	virtualisation = {
+		docker.enable = true;
 
-		qemuVerbatimConfig = ''
-			namespaces = []
-			user = "okina"
-			nographics_allow_host_audio = 1
-			max_files = 2048
-		'';
+		libvirtd = {
+			enable = true;
+
+			qemuVerbatimConfig = ''
+				namespaces = []
+				user = "okina"
+				group = "kvm"
+				nographics_allow_host_audio = 1
+				max_files = 2048
+
+				cgroup_device_acl = [
+					"/dev/kvm",
+					"/dev/input/by-id/usb-Logitech_Gaming_Keyboard_G610_017D356A3834-event-kbd",
+					"/dev/input/by-id/usb-Logitech_Gaming_Mouse_G502_136D37653136-event-mouse",
+					"/dev/null", "/dev/full", "/dev/zero",
+					"/dev/random", "/dev/urandom",
+					"/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+					"/dev/rtc","/dev/hpet", "/dev/sev"
+				]
+			'';
+		};
 	};
 
 	hardware = {

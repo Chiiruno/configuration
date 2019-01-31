@@ -67,17 +67,40 @@
 		};
 	};
 
-	systemd.user.services."timidity" = {
-		description = "TiMidity++ Daemon";
-		after = ["sound.target"];
-		wantedBy = ["default.target"];
-		serviceConfig.ExecStart = "${pkgs.timidity}/bin/timidity -iA -Os";
-	};
+	systemd = {
+		services = {
+			"looking-glass" = {
+				description = "looking-glass shm";
+				wantedBy = ["multi-user.target"];
 
-	systemd.user.services."mpd" = {
-		description = "Music Player Daemon";
-		after = [ "sound.target" ];
-		wantedBy = ["default.target"];
-		serviceConfig.ExecStart = "${pkgs.mpd}/bin/mpd --no-daemon";
+				script = ''
+					touch /dev/shm/looking-glass
+					chown okina:kvm /dev/shm/looking-glass
+					chmod 660 /dev/shm/looking-glass
+				'';
+
+				serviceConfig = {
+					PermissionsStartOnly = true;
+					Type = "oneshot";
+				};
+			};
+
+		};
+
+		user.services = {
+			"timidity" = {
+				description = "TiMidity++ Daemon";
+				after = ["sound.target"];
+				wantedBy = ["default.target"];
+				serviceConfig.ExecStart = "${pkgs.timidity}/bin/timidity -iA -Os";
+			};
+
+			"mpd" = {
+				description = "Music Player Daemon";
+				after = [ "sound.target" ];
+				wantedBy = ["default.target"];
+				serviceConfig.ExecStart = "${pkgs.mpd}/bin/mpd --no-daemon";
+			};
+		};
 	};
 }

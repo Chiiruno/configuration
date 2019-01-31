@@ -47,6 +47,10 @@
 
 				# Override Mesa OpenGL version to 3.0.
 				mesa_override = "MESA_GL_VERSION_OVERRIDE=3.0";
+
+				# Looking glass.
+				lokg = "looking-glass-client -sSM -K 60 -w 1920 -b 1200";
+				lokgf = "looking-glass-client -nsSFM -K 60 -w 1920 -b 1200";
 			};
 		};
 

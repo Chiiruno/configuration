@@ -25,6 +25,7 @@
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
+		wine.build = "wineWow";
 
 		firefox = {
 			enableGoogleTalkPlugin = true;
@@ -55,6 +56,7 @@
 					"kvm"
 					"video"
 					"lp"
+					"docker"
 				];
 			};
 
