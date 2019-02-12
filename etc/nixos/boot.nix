@@ -7,6 +7,7 @@ in {
 		plymouth.enable = true;
 		kernelPackages = pkgs.linuxPackages_latest;
 		kernelModules = [ "nct6775" ];
+		kernel.sysctl."net.ipv6.conf.wlp39s0.accept_ra" = 2;
 
 		kernelPatches = lib.singleton {
 			name = "enable-vfio";
