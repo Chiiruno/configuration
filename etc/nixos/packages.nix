@@ -40,6 +40,7 @@
 		elinks
 		qbittorrent
 		qtox
+		discord
 
 		# Media.
 		mpd

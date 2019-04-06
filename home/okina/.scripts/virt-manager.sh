@@ -1,0 +1,2 @@
+#!/bin/sh
+virt-manager
