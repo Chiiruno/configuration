@@ -19,10 +19,6 @@
 				# Barrier
 				24800
 			];
-
-			extraCommands = ''
-				iptables -A INPUT -p ipv6-icmp -j ACCEPT
-			'';
 		};
 	};
 }

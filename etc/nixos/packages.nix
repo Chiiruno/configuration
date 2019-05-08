@@ -61,7 +61,7 @@
 		snes9x-gtk
 		mgba
 		wine
-		looking-glass-client
+#		looking-glass-client
 
 		# KDE.
 		ark

@@ -28,7 +28,7 @@
 
 		postgresql = {
 			enable = true;
-			package = pkgs.postgresql_10;
+			package = pkgs.postgresql_11;
 		};
 
 		hydron = {

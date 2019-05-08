@@ -40,7 +40,7 @@
 				wine32 = "WINEARCH=win32 WINEPREFIX=~/.wine32";
 
 				# Meguca development environment.
-				meguca_dev = "GOPATH=~/go PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript opencv";
+				meguca_dev = "GOPATH=~/go PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs emscripten gcc gnumake cmake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript opencv statik";
 
 				# dumb shit
 				cheat_dev = "nix-shell -p gdb cmake SDL2 lua5_3 xdotool gnumake patchelf v8 zlib killall";
