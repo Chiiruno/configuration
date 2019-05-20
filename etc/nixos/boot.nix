@@ -36,6 +36,7 @@ in {
 				efiSupport = true;
 				enableCryptodisk = true;
 				device = "nodev";
+				splashImage = "/mnt/hdd1/home/okina/Pictures/grub.png";
 			};
 		};
 

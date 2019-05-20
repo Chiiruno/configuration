@@ -37,6 +37,7 @@
 		# Internet
 		firefox
 		midori
+		brave
 		elinks
 		qbittorrent
 		qtox
