@@ -6,6 +6,7 @@
 		printing.enable = true;
 		samba.enable = true;
 		accounts-daemon.enable = true;
+		gnunet.enable = true;
 
 		udev.extraRules = ''
 			# Let users read GameCube and Wii controllers.

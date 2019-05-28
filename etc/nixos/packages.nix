@@ -33,6 +33,7 @@
 		unzip
 		unrar
 		unar
+		zstd
 
 		# Internet
 		firefox
