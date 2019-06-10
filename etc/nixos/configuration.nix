@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 
 {
-	system.stateVersion = "unstable";
+	system.stateVersion = "19.03";
 
 	imports = [
 		./boot.nix
