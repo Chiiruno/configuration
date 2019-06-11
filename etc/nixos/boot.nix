@@ -22,7 +22,7 @@ in {
 			"amd_iommu=on"
 			"iommu=pt"
 			"zswap.enabled=1"
-			"kvm.ignore_msrs=1"
+#			"kvm.ignore_msrs=1"
 			"vfio-pci.ids=1002:67df,1002:aaf0"
 		];
 
@@ -45,30 +45,18 @@ in {
 			secrets."/etc/crypto/root.key" = /etc/crypto/root.key;
 			secrets."/etc/crypto/drive.key" = /etc/crypto/drive.key;
 
+			# Create /run/cryptsetup directory to avoid locking warning
+			preDeviceCommands = "mkdir -pm0700 /run/cryptsetup";
+
 			# Unlock the encrypted partitions.
 			luks.devices = {
 				"crypthdd0".keyFile = key;
 				"crypthdd1".keyFile = key;
-
-				"cryptswap" = {
-					device = "/dev/disk/by-uuid/9666ab7d-6c7c-448f-8a34-8d0beefb055f";
-					allowDiscards = true;
-					keyFile = key;
-				};
+				"cryptwhdd0".keyFile = key;
 
 				"cryptroot" = {
 					allowDiscards = true;
 					keyFile = "/etc/crypto/root.key";
-				};
-
-				"cryptboot" = {
-					allowDiscards = true;
-					keyFile = key;
-				};
-
-				"cryptvirt" = {
-					allowDiscards = true;
-					keyFile = key;
 				};
 
 				"cryptssd0" = {
@@ -77,6 +65,21 @@ in {
 				};
 
 				"cryptssd1" = {
+					allowDiscards = true;
+					keyFile = key;
+				};
+
+				"cryptwroot" = {
+					allowDiscards = true;
+					keyFile = key;
+				};
+
+				"cryptwssd0" = {
+					allowDiscards = true;
+					keyFile = key;
+				};
+
+				"cryptwssd1" = {
 					allowDiscards = true;
 					keyFile = key;
 				};
@@ -90,7 +93,7 @@ in {
 
 			options = [
 				"discard"
-				"compress=zstd"
+				"compress=lzo"
 			];
 		};
 
@@ -99,7 +102,7 @@ in {
 
 			options = [
 				"discard"
-				"compress=zstd"
+				"compress=lzo"
 			];
 		};
 
@@ -108,25 +111,7 @@ in {
 
 			options = [
 				"discard"
-				"compress=zstd"
-			];
-		};
-
-		"/boot" = {
-			label = "boot";
-
-			options = [
-				"discard"
 				"compress=lzo"
-			];
-		};
-
-		"/virt" = {
-			label = "virt";
-
-			options = [
-				"discard"
-				"nodatacow"
 			];
 		};
 
@@ -140,7 +125,7 @@ in {
 
 			options = [
 				"discard"
-				"compress=zstd"
+				"compress=lzo"
 			];
 		};
 
@@ -149,18 +134,50 @@ in {
 
 			options = [
 				"discard"
-				"nodatacow"
+				"compress=lzo"
 			];
 		};
 
 		"/mnt/hdd0" = {
 			label = "hdd0";
-			options = [ "compress=zstd" ];
+			options = [ "compress=lzo" ];
 		};
 
 		"/mnt/hdd1" = {
 			label = "hdd1";
-			options = [ "compress=zstd" ];
+			options = [ "compress=lzo" ];
+		};
+
+		"/virt/root" = {
+			label = "wroot";
+
+			options = [
+				"discard"
+				"nodatacow"
+			];
+		};
+
+		"/virt/ssd0" = {
+			label = "wssd0";
+
+			options = [
+				"discard"
+				"nodatacow"
+			];
+		};
+
+		"/virt/ssd1" = {
+			label = "wssd1";
+
+			options = [
+				"discard"
+				"nodatacow"
+			];
+		};
+
+		"/virt/hdd0" = {
+			label = "whdd0";
+			options = [ "nodatacow" ];
 		};
 	};
 }

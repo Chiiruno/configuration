@@ -6,7 +6,7 @@
 		printing.enable = true;
 		samba.enable = true;
 		accounts-daemon.enable = true;
-		gnunet.enable = true;
+#		gnunet.enable = true;
 
 		udev.extraRules = ''
 			# Let users read GameCube and Wii controllers.
@@ -41,7 +41,6 @@
 
 		xserver = {
 			enable = true;
-			useGlamor = true;
 			updateDbusEnvironment = true;
 			desktopManager.plasma5.enable = true;
 			layout = "us";
@@ -54,8 +53,8 @@
 			# Disable any joystick controlling the pointer.
 			inputClassSections = [''
 				Identifier		"joystick catchall"
-				MatchIsJoystick	"on"
-				MatchDevicePath	"/dev/input/event*"
+				MatchIsJoystick		"on"
+				MatchDevicePath		"/dev/input/event*"
 				Driver			"joystick"
 				Option			"StartKeysEnabled"  "False"	# Support
 				Option			"StartMouseEnabled" "False"	# Disable the mouse
