@@ -69,6 +69,8 @@
 
 	systemd = {
 		services = {
+			nix-daemon.serviceConfig.EnvironmentFile = "/etc/github/credentials";
+
 			"looking-glass" = {
 				description = "looking-glass shm";
 				wantedBy = ["multi-user.target"];
