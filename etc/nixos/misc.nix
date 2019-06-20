@@ -54,9 +54,9 @@
 			package = pkgs.pulseaudioFull;
 
 			daemon.config = {
-				default-sample-format = "s32le";
-				default-sample-rate = "96000";
-				resample-method = "speex-float-5";
+				default-sample-format = "s24le";
+				default-sample-rate = "192000";
+				resample-method = "speex-float-7";
 			};
 		};
 	};

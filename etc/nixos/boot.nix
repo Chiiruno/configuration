@@ -22,7 +22,7 @@ in {
 			"amd_iommu=on"
 			"iommu=pt"
 			"zswap.enabled=1"
-#			"kvm.ignore_msrs=1"
+			"kvm.ignore_msrs=1"
 			"vfio-pci.ids=1002:67df,1002:aaf0"
 		];
 
