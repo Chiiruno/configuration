@@ -1,23 +1,22 @@
 {
 	networking = {
-		networkmanager.enable = true;
 		hostName = "okinan";
+		nameservers = [ "127.0.0.1" "::1" ];
+
+		networkmanager = {
+			enable = true;
+			dns = "none";
+		};
 
 		firewall = {
 			allowedTCPPorts = [
 				# Torrent
 				13370
-
-				# Barrier
-#				24800
 			];
 
 			allowedUDPPorts = [
 				# Torrent
 				13370
-
-				# Barrier
-#				24800
 			];
 		};
 	};

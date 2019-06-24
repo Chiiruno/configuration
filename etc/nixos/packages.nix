@@ -24,8 +24,7 @@
 		git
 		gcc
 		go
-		nodejs
-		rustup
+		rustc
 		vscode-with-extensions
 
 		# Compression.
@@ -37,11 +36,10 @@
 
 		# Internet
 		firefox
+		shadowfox
 		midori
-		brave
 		elinks
 		qbittorrent
-		qtox
 
 		# Media.
 		mpd
@@ -58,11 +56,10 @@
 		multimc
 
 		# Emulation.
-		dolphinEmuMaster
+		dolphinEmu
 		snes9x-gtk
 		mgba
 		wine
-#		looking-glass-client
 
 		# KDE.
 		ark

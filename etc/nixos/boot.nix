@@ -44,7 +44,6 @@ in {
 			# Append keyfiles to initrd.
 			secrets."/etc/crypto/root.key" = /etc/crypto/root.key;
 			secrets."/etc/crypto/drive.key" = /etc/crypto/drive.key;
-
 			# Create /run/cryptsetup directory to avoid locking warning
 			preDeviceCommands = "mkdir -pm0700 /run/cryptsetup";
 
