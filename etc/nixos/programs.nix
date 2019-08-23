@@ -41,6 +41,12 @@
 
 				# Override Mesa OpenGL version to 3.0.
 				mesa_override = "MESA_GL_VERSION_OVERRIDE=3.0";
+
+				# Limit network speed to 128KiB d/u.
+				nlimit = "sudo sh /etc/scripts/wondershaper -a enp42s0 -d 10 -u 10";
+
+				# Clear network speed limit.
+				nclear = "sudo sh /etc/scripts/wondershaper -c -a enp42s0";
 			};
 		};
 

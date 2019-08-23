@@ -18,6 +18,7 @@
 		virtmanager
 		barrier
 		openssl
+		docker-compose
 		qt5.qttools
 
 		# Development
@@ -40,6 +41,7 @@
 		midori
 		elinks
 		qbittorrent
+		brave
 
 		# Media.
 		mpd
