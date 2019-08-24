@@ -36,6 +36,7 @@
 		zstd
 
 		# Internet
+		telnet
 		firefox
 		shadowfox
 		midori
