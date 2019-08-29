@@ -36,6 +36,7 @@
 		zstd
 
 		# Internet
+		proxychains
 		telnet
 		firefox
 		shadowfox
