@@ -8,15 +8,22 @@ in {
 		kernelPackages = pkgs.linuxPackages_latest;
 		kernelModules = [ "nct6775" ];
 
-		kernelPatches = lib.singleton {
-			name = "enable-vfio";
-			patch = null;
+		kernelPatches = [
+			{
+				name = "enable-vfio";
+				patch = null;
 
-			extraConfig = ''
-				VFIO y
-				VFIO_PCI y
-			'';
-		};
+				extraConfig = ''
+					VFIO y
+					VFIO_PCI y
+				'';
+			}
+
+			{
+				name = "amd-fuckup-kernel-patch";
+				patch = /etc/nixos/amd_fuckup_kernel_patch.diff;
+			}
+	];
 
 		kernelParams = [
 			"amd_iommu=on"
