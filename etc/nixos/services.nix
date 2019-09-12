@@ -111,7 +111,8 @@
 
 				audio_output {
 					type                  "pulse"
-					name                  "Okina's Pulse Audio"
+					name                  "Okina's Music Player Daemon"
+					server                "127.0.0.1"
 				}
 			'';
 		};
