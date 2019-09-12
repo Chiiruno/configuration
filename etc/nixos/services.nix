@@ -125,6 +125,7 @@
 				description = "TiMidity++ Daemon";
 				after = ["sound.target"];
 				wantedBy = ["default.target"];
+				unitConfig.ConditionUser = "okina";
 				serviceConfig.ExecStart = "${pkgs.timidity}/bin/timidity -iA -Os";
 			};
 		};
