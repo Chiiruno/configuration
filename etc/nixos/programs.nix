@@ -37,7 +37,7 @@
 				jp8 = "LC_ALL=ja_JP.UTF-8";
 
 				# Meguca development environment.
-				meguca_dev = "GOPATH=~/go PATH=$PATH:$GOPATH/bin nix-shell -p go nodejs gcc gnumake pkgconfig go-bindata easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript opencv statik geoip";
+				meguca_dev = "nix-shell -p go nodejs gcc gnumake pkgconfig easyjson quicktemplate ffmpeg-full graphicsmagick ghostscript opencv statik geoip";
 
 				# Override Mesa OpenGL version to 3.0.
 				mesa_override = "MESA_GL_VERSION_OVERRIDE=3.0";

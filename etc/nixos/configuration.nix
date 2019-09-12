@@ -36,34 +36,25 @@
 	users = {
 		defaultUserShell = pkgs.zsh;
 
-		extraUsers = {
-			meguca.isSystemUser = true;
+		extraUsers.okina = {
+			isNormalUser = true;
+			uid = 1000;
+			home = "/home/okina";
+			description = "隠岐奈";
+			initialHashedPassword = "$6$2eZF5D9poF$0cDC37zn4bzmdiSZDsVIh1pqHjJov67N8GyTPUxgKMq6VOv/ahgr1657b3S/UxJm0p9KkYsbSFOGuBTSRSv6T0";
 
-			okina = {
-				isNormalUser = true;
-				uid = 1000;
-				home = "/home/okina";
-				description = "隠岐奈";
-				initialHashedPassword = "$6$2eZF5D9poF$0cDC37zn4bzmdiSZDsVIh1pqHjJov67N8GyTPUxgKMq6VOv/ahgr1657b3S/UxJm0p9KkYsbSFOGuBTSRSv6T0";
-
-				extraGroups = [
-					"wheel"
-					"audio"
-					"networkmanager"
-					"input"
-					"plugdev"
-					"libvirtd"
-					"kvm"
-					"video"
-					"lp"
-					"docker"
-				];
-			};
-
-			hydron = {
-				isSystemUser = true;
-				extraGroups = [ "users" ];
-			};
+			extraGroups = [
+				"wheel"
+				"audio"
+				"networkmanager"
+				"input"
+				"plugdev"
+				"libvirtd"
+				"kvm"
+				"video"
+				"lp"
+				"docker"
+			];
 		};
 	};
 }

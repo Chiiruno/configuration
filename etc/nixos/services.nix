@@ -6,6 +6,7 @@
 		printing.enable = true;
 		samba.enable = true;
 		accounts-daemon.enable = true;
+		kbfs.enable = true;
 
 		udev.extraRules = ''
 			# Let users read GameCube and Wii controllers.
@@ -58,11 +59,6 @@
 			torAlways = true;
 		};
 
-		postgresql = {
-			enable = true;
-			package = pkgs.postgresql_11;
-		};
-
 		hydron = {
 			enable = true;
 			fetchTags = true;
@@ -96,6 +92,29 @@
 			enable = true;
 			provider = "geoclue2";
 		};
+
+		mpd = {
+			enable = true;
+			user = "okina";
+			group = "users";
+			musicDirectory = "/home/okina/Music";
+
+			extraConfig = ''
+				auto_update             "yes"
+
+				max_playlist_length     "65536"
+				max_command_list_size   "16384"
+				max_output_buffer_size  "32768"
+
+				follow_outside_symlinks "yes"
+				follow_inside_symlinks  "yes"
+
+				audio_output {
+					type                  "pulse"
+					name                  "Okina's Pulse Audio"
+				}
+			'';
+		};
 	};
 
 	systemd = {
@@ -107,13 +126,6 @@
 				after = ["sound.target"];
 				wantedBy = ["default.target"];
 				serviceConfig.ExecStart = "${pkgs.timidity}/bin/timidity -iA -Os";
-			};
-
-			"mpd" = {
-				description = "Music Player Daemon";
-				after = [ "sound.target" ];
-				wantedBy = ["default.target"];
-				serviceConfig.ExecStart = "${pkgs.mpd}/bin/mpd --no-daemon";
 			};
 		};
 	};

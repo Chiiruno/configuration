@@ -8,7 +8,6 @@
 		lm_sensors
 		gnupg
 		neofetch
-		scrot
 		tewisay
 		catfish
 		ebtables
@@ -16,7 +15,6 @@
 		bridge-utils
 		netcat-openbsd
 		virtmanager
-		barrier
 		openssl
 		docker-compose
 		qt5.qttools
@@ -25,7 +23,6 @@
 		git
 		gcc
 		go
-		rustc
 		vscode-with-extensions
 
 		# Compression.
@@ -36,17 +33,16 @@
 		zstd
 
 		# Internet
-		proxychains
 		telnet
+		qbittorrent
+		keybase-gui
 		firefox
-		shadowfox
+		brave
 		midori
 		elinks
-		qbittorrent
-		brave
+		shadowfox
 
 		# Media.
-		mpd
 		ncmpcpp
 		mpv
 		youtube-dl

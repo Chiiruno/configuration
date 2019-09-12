@@ -39,9 +39,9 @@
 	};
 
 	hardware = {
-		cpu.amd.updateMicrocode = true;
 		bluetooth.enable = true;
 		steam-hardware.enable = true;
+		cpu.amd.updateMicrocode = true;
 
 		opengl = {
 			driSupport32Bit = true;
