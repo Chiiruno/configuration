@@ -1,4 +1,4 @@
-{ lib, pkgs, ...}:
+{ pkgs, ... }:
 
 let
 	key = "/etc/crypto/drive.key";
