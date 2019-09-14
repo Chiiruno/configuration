@@ -41,6 +41,7 @@
 		midori
 		elinks
 		shadowfox
+		mumble
 
 		# Media.
 		ncmpcpp
