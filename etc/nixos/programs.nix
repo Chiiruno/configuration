@@ -25,10 +25,10 @@
 				nrebuild = "sudo nixos-rebuild switch";
 
 				# Upgrade the system.
-				nupgrade = "sudo nixos-rebuild switch --upgrade";
+				nupgrade = "nix-channel --update && sudo nixos-rebuild switch --upgrade";
 
 				# Upgrade the system. (boot)
-				nboot = "sudo nixos-rebuild boot --upgrade";
+				nboot = "nix-channel --update && sudo nixos-rebuild boot --upgrade";
 
 				# Collect garbage.
 				ncollect = "sudo nix-collect-garbage -d";
