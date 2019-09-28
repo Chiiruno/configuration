@@ -6,7 +6,7 @@ in {
 	swapDevices = [{ device = "/swap/swapfile"; }];
 
 	boot = {
-		plymouth.enable = true;
+#		plymouth.enable = true;
 		kernelPackages = pkgs.linuxPackages_latest;
 		kernelModules = [ "nct6775" ];
 
