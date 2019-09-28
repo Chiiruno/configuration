@@ -4,6 +4,7 @@
 	time.timeZone = "America/Chicago";
 	systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 	sound.enable = true;
+	location.provider = "geoclue2";
 
 	security.pam.loginLimits = [{
 		domain = "*";

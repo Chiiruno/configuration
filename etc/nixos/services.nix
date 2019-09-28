@@ -7,6 +7,7 @@
 		samba.enable = true;
 		accounts-daemon.enable = true;
 		kbfs.enable = true;
+		redshift.enable = true;
 
 		udev.extraRules = ''
 			# Let users read GameCube and Wii controllers.
@@ -86,11 +87,6 @@
 				Option             "StartKeysEnabled"     "False"    # Support
 				Option             "StartMouseEnabled"    "False"    # Disable the mouse
 			''];
-		};
-
-		redshift = {
-			enable = true;
-			provider = "geoclue2";
 		};
 
 		mpd = {

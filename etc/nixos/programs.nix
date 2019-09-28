@@ -1,8 +1,14 @@
+{ pkgs, ... }:
+
 {
 	programs = {
 		dconf.enable = true;
-		java.enable = true;
 		gnupg.agent.enable = true;
+
+		java = {
+			enable = true;
+			package = pkgs.jdk12;
+		};
 
 		zsh = {
 			enable = true;

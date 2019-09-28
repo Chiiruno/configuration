@@ -4,14 +4,13 @@
 { config, pkgs, ... }:
 
 {
-	system.stateVersion = "19.03";
+	system.stateVersion = "19.09";
 
 	imports = [
 		./boot.nix
 		./hardware-configuration.nix
 		./misc.nix
 		./network.nix
-		./override.nix
 		./packages.nix
 		./programs.nix
 		./services.nix

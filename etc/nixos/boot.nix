@@ -3,27 +3,22 @@
 let
 	key = "/etc/crypto/drive.key";
 in {
+	swapDevices = [{ device = "/swap/swapfile"; }];
+
 	boot = {
 		plymouth.enable = true;
 		kernelPackages = pkgs.linuxPackages_latest;
 		kernelModules = [ "nct6775" ];
 
-		kernelPatches = [
-			{
-				name = "enable-vfio";
-				patch = null;
+		kernelPatches = [{
+			name = "enable-vfio";
+			patch = null;
 
-				extraConfig = ''
-					VFIO y
-					VFIO_PCI y
-				'';
-			}
-
-			{
-				name = "amd-fuckup-kernel-patch";
-				patch = /etc/nixos/amd_fuckup_kernel_patch.diff;
-			}
-	];
+			extraConfig = ''
+				VFIO y
+				VFIO_PCI y
+			'';
+		}];
 
 		kernelParams = [
 			"amd_iommu=on"
