@@ -103,7 +103,7 @@
   boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/78615e67-4a20-463a-b800-7fb557dbe532";
 
   fileSystems."/var/lib/docker/btrfs" =
-    { device = "/home/@home/@home/@home/@/var/lib/docker/btrfs";
+    { device = "/home/@/var/lib/docker/btrfs";
       fsType = "none";
       options = [ "bind" ];
     };
