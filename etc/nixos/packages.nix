@@ -63,6 +63,7 @@
 		wine
 
 		# KDE.
+		akonadi
 		ark
 		ffmpegthumbs
 		kate

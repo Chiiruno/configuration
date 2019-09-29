@@ -28,8 +28,8 @@
 
 				cgroup_device_acl = [
 					"/dev/kvm",
-					"/dev/input/by-id/usb-Logitech_Gaming_Keyboard_G610_017D356A3834-if01-event-kbd",
-					"/dev/input/by-id/usb-Logitech_Gaming_Mouse_G502_136D37653136-if01-event-kbd",
+					"/dev/input/by-path/pci-0000:02:00.0-usb-0:6:1.0-event-kbd",
+					"/dev/input/by-path/pci-0000:02:00.0-usb-0:7:1.0-event-mouse",
 					"/dev/null", "/dev/full", "/dev/zero",
 					"/dev/random", "/dev/urandom",
 					"/dev/ptmx", "/dev/kvm", "/dev/kqemu",
