@@ -19,7 +19,7 @@ in {
 					VFIO y
 					VFIO_PCI y
 				'';
-			};
+			}
 
 			{
 				name = "amd-fuckup-kernel-patch";
