@@ -24,7 +24,7 @@ in {
 			{
 				name = "amd-fuckup-kernel-patch";
 				patch = /etc/nixos/amd_fuckup_kernel_patch.patch;
-			};
+			}
 		];
 
 		kernelParams = [
