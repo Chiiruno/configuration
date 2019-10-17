@@ -32,11 +32,13 @@
       options = [ "subvol=@snapshots" ];
     };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/d8035775-b361-4278-9c14-4b56db05cac8";
+  fileSystems."/virt/ssd0" =
+    { device = "/dev/disk/by-uuid/f89bee2a-7fb3-491d-8fbb-fa345dedf9b6";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
+      options = [ "subvol=@wssd0" ];
     };
+
+  boot.initrd.luks.devices."cryptwssd0".device = "/dev/disk/by-uuid/96f421fb-296e-42ef-a738-0a2a256b3c44";
 
   fileSystems."/mnt/ssd0" =
     { device = "/dev/disk/by-uuid/c0daa158-2d58-4945-b734-fa314759fb3c";
@@ -46,22 +48,6 @@
 
   boot.initrd.luks.devices."cryptssd0".device = "/dev/disk/by-uuid/adad02ff-db69-44c1-829c-3a219d956d99";
 
-  fileSystems."/mnt/ssd1" =
-    { device = "/dev/disk/by-uuid/d72e67a4-06ab-49ce-97e2-78bd3f3124b2";
-      fsType = "btrfs";
-      options = [ "subvol=@ssd1" ];
-    };
-
-  boot.initrd.luks.devices."cryptssd1".device = "/dev/disk/by-uuid/37e18604-2e99-4122-96b0-8a9d8cc62908";
-
-  fileSystems."/virt/root" =
-    { device = "/dev/disk/by-uuid/00eb94ab-a20a-4e5b-807d-b6ab3b23c406";
-      fsType = "btrfs";
-      options = [ "subvol=@wroot" ];
-    };
-
-  boot.initrd.luks.devices."cryptwroot".device = "/dev/disk/by-uuid/5cd6f86b-dca7-4869-9bfc-89748894a704";
-
   fileSystems."/virt/ssd1" =
     { device = "/dev/disk/by-uuid/96bb4954-4b19-4941-9e7f-157d318bdf50";
       fsType = "btrfs";
@@ -70,13 +56,33 @@
 
   boot.initrd.luks.devices."cryptwssd1".device = "/dev/disk/by-uuid/d5aac138-fccb-4f6c-bf34-36caf5555a1e";
 
-  fileSystems."/virt/ssd0" =
-    { device = "/dev/disk/by-uuid/f89bee2a-7fb3-491d-8fbb-fa345dedf9b6";
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/d8035775-b361-4278-9c14-4b56db05cac8";
       fsType = "btrfs";
-      options = [ "subvol=@wssd0" ];
+      options = [ "subvol=@home" ];
     };
 
-  boot.initrd.luks.devices."cryptwssd0".device = "/dev/disk/by-uuid/96f421fb-296e-42ef-a738-0a2a256b3c44";
+  fileSystems."/mnt/ssd1" =
+    { device = "/dev/disk/by-uuid/d72e67a4-06ab-49ce-97e2-78bd3f3124b2";
+      fsType = "btrfs";
+      options = [ "subvol=@ssd1" ];
+    };
+
+  boot.initrd.luks.devices."cryptssd1".device = "/dev/disk/by-uuid/37e18604-2e99-4122-96b0-8a9d8cc62908";
+
+  fileSystems."/var/lib/docker/btrfs" =
+    { device = "/home/@/var/lib/docker/btrfs";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/virt/root" =
+    { device = "/dev/disk/by-uuid/00eb94ab-a20a-4e5b-807d-b6ab3b23c406";
+      fsType = "btrfs";
+      options = [ "subvol=@wroot" ];
+    };
+
+  boot.initrd.luks.devices."cryptwroot".device = "/dev/disk/by-uuid/5cd6f86b-dca7-4869-9bfc-89748894a704";
 
   fileSystems."/mnt/hdd1" =
     { device = "/dev/disk/by-uuid/87a589d3-5eb4-4600-a513-6a7d8647f57f";
@@ -101,12 +107,6 @@
     };
 
   boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/78615e67-4a20-463a-b800-7fb557dbe532";
-
-  fileSystems."/var/lib/docker/btrfs" =
-    { device = "/home/@/var/lib/docker/btrfs";
-      fsType = "none";
-      options = [ "bind" ];
-    };
 
   swapDevices = [ ];
 
