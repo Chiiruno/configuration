@@ -50,6 +50,9 @@
 
 				# Clear network speed limit.
 				nclear = "sudo sh /etc/scripts/wondershaper -c -a enp42s0";
+
+				# SSH connect on port 38722
+				meguca_ssh = "ssh -p 38722";
 			};
 		};
 
