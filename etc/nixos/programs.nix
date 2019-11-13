@@ -51,8 +51,11 @@
 				# Clear network speed limit.
 				nclear = "sudo sh /etc/scripts/wondershaper -c -a enp42s0";
 
-				# SSH connect on port 38722
-				meguca_ssh = "ssh -p 38722";
+				# Meguca development environment
+				meguca_dev = "nix-shell -p pth openssl geoip opencv ffmpeg_4";
+
+				# Generate ffmpeg concat list from ugoira animation.json
+				gen_ugo = ''egrep -o '[0-9]+\.[A-Za-z]+|[0-9]+' frames/animation.json | awk 'NR % 2 {print} !(NR % 2) {print $0/1000}' | sed -e "0~2n;s/^/file 'frames\//;s/$/'/" -e '1~2n;s/^/duration /' > list.txt'';
 			};
 		};
 

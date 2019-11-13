@@ -21,8 +21,12 @@
 
 		# Development
 		git
+		gnumake
 		gcc
 		go
+		rustup
+		nodejs
+		pkgconfig
 		vscode-with-extensions
 
 		# Compression.
