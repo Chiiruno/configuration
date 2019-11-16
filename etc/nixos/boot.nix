@@ -8,7 +8,7 @@ in {
 	boot = {
 #		plymouth.enable = true;
 		kernelPackages = pkgs.linuxPackages_latest;
-		kernelModules = [ "nct6775" ];
+		kernelModules = [ "jc42" ];
 
 		kernelPatches = [
 			{
@@ -20,18 +20,13 @@ in {
 					VFIO_PCI y
 				'';
 			}
-
-			{
-				name = "amd-fuckup-kernel-patch";
-				patch = /etc/nixos/amd_fuckup_kernel_patch.patch;
-			}
 		];
 
 		kernelParams = [
 			"amd_iommu=on"
 			"iommu=pt"
 			"zswap.enabled=1"
-			"kvm.ignore_msrs=1"
+#			"kvm.ignore_msrs=1"
 			"vfio-pci.ids=1002:67df,1002:aaf0"
 		];
 
@@ -67,22 +62,12 @@ in {
 					keyFile = "/etc/crypto/root.key";
 				};
 
-				"cryptssd0" = {
-					allowDiscards = true;
-					keyFile = key;
-				};
-
 				"cryptssd1" = {
 					allowDiscards = true;
 					keyFile = key;
 				};
 
 				"cryptwroot" = {
-					allowDiscards = true;
-					keyFile = key;
-				};
-
-				"cryptwssd0" = {
 					allowDiscards = true;
 					keyFile = key;
 				};
@@ -123,18 +108,17 @@ in {
 			];
 		};
 
-		"/boot/efi" = {
-			label = "uefi";
-			options = [ "discard" ];
-		};
-
-		"/mnt/ssd0" = {
-			label = "ssd0";
-
+		"/boot" = {
+			label = "boot";
 			options = [
 				"discard"
 				"compress=lzo"
 			];
+		};
+
+		"/boot/efi" = {
+			label = "uefi";
+			options = [ "discard" ];
 		};
 
 		"/mnt/ssd1" = {
@@ -158,15 +142,6 @@ in {
 
 		"/virt/root" = {
 			label = "wroot";
-
-			options = [
-				"discard"
-				"nodatacow"
-			];
-		};
-
-		"/virt/ssd0" = {
-			label = "wssd0";
 
 			options = [
 				"discard"

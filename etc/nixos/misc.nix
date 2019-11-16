@@ -16,27 +16,27 @@
 	virtualisation = {
 		docker.enable = true;
 
-		libvirtd = {
-			enable = true;
+#		libvirtd = {
+#			enable = true;
 
-			qemuVerbatimConfig = ''
-				namespaces = []
-				user = "okina"
-				group = "kvm"
-				nographics_allow_host_audio = 1
-				max_files = 2048
+#			qemuVerbatimConfig = ''
+#				namespaces = []
+#				user = "okina"
+#				group = "kvm"
+#				nographics_allow_host_audio = 1
+#				max_files = 2048
 
-				cgroup_device_acl = [
-					"/dev/kvm",
-					"/dev/input/by-path/pci-0000:02:00.0-usb-0:6:1.0-event-kbd",
-					"/dev/input/by-path/pci-0000:02:00.0-usb-0:7:1.0-event-mouse",
-					"/dev/null", "/dev/full", "/dev/zero",
-					"/dev/random", "/dev/urandom",
-					"/dev/ptmx", "/dev/kvm", "/dev/kqemu",
-					"/dev/rtc","/dev/hpet", "/dev/sev"
-				]
-			'';
-		};
+#				cgroup_device_acl = [
+#					"/dev/kvm",
+#					"/dev/input/by-path/pci-0000:02:00.0-usb-0:6:1.0-event-kbd",
+#					"/dev/input/by-path/pci-0000:02:00.0-usb-0:7:1.0-event-mouse",
+#					"/dev/null", "/dev/full", "/dev/zero",
+#					"/dev/random", "/dev/urandom",
+#					"/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+#					"/dev/rtc","/dev/hpet", "/dev/sev"
+#				]
+#			'';
+#		};
 	};
 
 	hardware = {

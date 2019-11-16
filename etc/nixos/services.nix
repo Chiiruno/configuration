@@ -55,7 +55,7 @@
 		};
 
 		zeronet = {
-			enable = true;
+#			enable = true;
 			tor = true;
 			torAlways = true;
 		};

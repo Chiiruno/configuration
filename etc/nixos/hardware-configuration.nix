@@ -8,7 +8,7 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -21,45 +21,26 @@
 
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/7e179ba5-0d32-4bbf-9226-7713021a18e7";
 
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/2BFB-2C39";
-      fsType = "vfat";
-    };
-
   fileSystems."/.snapshots" =
     { device = "/dev/disk/by-uuid/d8035775-b361-4278-9c14-4b56db05cac8";
       fsType = "btrfs";
       options = [ "subvol=@snapshots" ];
     };
 
-  fileSystems."/virt/ssd0" =
-    { device = "/dev/disk/by-uuid/f89bee2a-7fb3-491d-8fbb-fa345dedf9b6";
-      fsType = "btrfs";
-      options = [ "subvol=@wssd0" ];
-    };
-
-  boot.initrd.luks.devices."cryptwssd0".device = "/dev/disk/by-uuid/96f421fb-296e-42ef-a738-0a2a256b3c44";
-
-  fileSystems."/mnt/ssd0" =
-    { device = "/dev/disk/by-uuid/c0daa158-2d58-4945-b734-fa314759fb3c";
-      fsType = "btrfs";
-      options = [ "subvol=@ssd0" ];
-    };
-
-  boot.initrd.luks.devices."cryptssd0".device = "/dev/disk/by-uuid/adad02ff-db69-44c1-829c-3a219d956d99";
-
-  fileSystems."/virt/ssd1" =
-    { device = "/dev/disk/by-uuid/96bb4954-4b19-4941-9e7f-157d318bdf50";
-      fsType = "btrfs";
-      options = [ "subvol=@wssd1" ];
-    };
-
-  boot.initrd.luks.devices."cryptwssd1".device = "/dev/disk/by-uuid/d5aac138-fccb-4f6c-bf34-36caf5555a1e";
-
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/d8035775-b361-4278-9c14-4b56db05cac8";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/0624848c-3709-4302-bda0-ffb52247e8bd";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/3016-BECE";
+      fsType = "vfat";
     };
 
   fileSystems."/mnt/ssd1" =
@@ -70,11 +51,29 @@
 
   boot.initrd.luks.devices."cryptssd1".device = "/dev/disk/by-uuid/37e18604-2e99-4122-96b0-8a9d8cc62908";
 
-  fileSystems."/var/lib/docker/btrfs" =
-    { device = "/home/@/var/lib/docker/btrfs";
-      fsType = "none";
-      options = [ "bind" ];
+  fileSystems."/virt/ssd1" =
+    { device = "/dev/disk/by-uuid/96bb4954-4b19-4941-9e7f-157d318bdf50";
+      fsType = "btrfs";
+      options = [ "subvol=@wssd1" ];
     };
+
+  boot.initrd.luks.devices."cryptwssd1".device = "/dev/disk/by-uuid/d5aac138-fccb-4f6c-bf34-36caf5555a1e";
+
+  fileSystems."/mnt/hdd0" =
+    { device = "/dev/disk/by-uuid/b96c4d2b-85e4-4ac9-9ef8-aecdcb5f34e8";
+      fsType = "btrfs";
+      options = [ "subvol=@hdd0" ];
+    };
+
+  boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/78615e67-4a20-463a-b800-7fb557dbe532";
+
+  fileSystems."/virt/hdd0" =
+    { device = "/dev/disk/by-uuid/f1295a55-6551-4d16-b708-a8425f653f42";
+      fsType = "btrfs";
+      options = [ "subvol=@whdd0" ];
+    };
+
+  boot.initrd.luks.devices."cryptwhdd0".device = "/dev/disk/by-uuid/7c25b0d5-19ce-41ab-94f5-47524bf2aab8";
 
   fileSystems."/virt/root" =
     { device = "/dev/disk/by-uuid/00eb94ab-a20a-4e5b-807d-b6ab3b23c406";
@@ -91,22 +90,6 @@
     };
 
   boot.initrd.luks.devices."crypthdd1".device = "/dev/disk/by-uuid/ad0e368a-3910-4d1f-b39b-65a11a69b256";
-
-  fileSystems."/virt/hdd0" =
-    { device = "/dev/disk/by-uuid/f1295a55-6551-4d16-b708-a8425f653f42";
-      fsType = "btrfs";
-      options = [ "subvol=@whdd0" ];
-    };
-
-  boot.initrd.luks.devices."cryptwhdd0".device = "/dev/disk/by-uuid/7c25b0d5-19ce-41ab-94f5-47524bf2aab8";
-
-  fileSystems."/mnt/hdd0" =
-    { device = "/dev/disk/by-uuid/b96c4d2b-85e4-4ac9-9ef8-aecdcb5f34e8";
-      fsType = "btrfs";
-      options = [ "subvol=@hdd0" ];
-    };
-
-  boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/78615e67-4a20-463a-b800-7fb557dbe532";
 
   swapDevices = [ ];
 

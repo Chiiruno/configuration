@@ -55,6 +55,8 @@
 		mcomix
 		timidity
 		soundfont-fluid
+		ffmpeg_4
+		obs-studio
 
 		# Games.
 		steam
