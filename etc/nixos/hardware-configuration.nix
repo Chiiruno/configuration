@@ -14,82 +14,47 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d8035775-b361-4278-9c14-4b56db05cac8";
+    { device = "/dev/disk/by-uuid/9088f1fd-2c1d-48da-a929-3a671c1549b0";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/7e179ba5-0d32-4bbf-9226-7713021a18e7";
-
-  fileSystems."/.snapshots" =
-    { device = "/dev/disk/by-uuid/d8035775-b361-4278-9c14-4b56db05cac8";
-      fsType = "btrfs";
-      options = [ "subvol=@snapshots" ];
-    };
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/0074cfa7-91e4-4d15-9b4e-0d4965d5260e";
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/d8035775-b361-4278-9c14-4b56db05cac8";
+    { device = "/dev/disk/by-uuid/9088f1fd-2c1d-48da-a929-3a671c1549b0";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0624848c-3709-4302-bda0-ffb52247e8bd";
-      fsType = "btrfs";
-    };
-
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/3016-BECE";
+    { device = "/dev/disk/by-uuid/1725-E8F3";
       fsType = "vfat";
     };
 
-  fileSystems."/mnt/ssd1" =
-    { device = "/dev/disk/by-uuid/d72e67a4-06ab-49ce-97e2-78bd3f3124b2";
+  fileSystems."/mnt/ssd0" =
+    { device = "/dev/disk/by-uuid/eaf17b12-2761-45ad-9e0c-b8ac18987ff3";
       fsType = "btrfs";
-      options = [ "subvol=@ssd1" ];
+      options = [ "subvol=@ssd0" ];
     };
 
-  boot.initrd.luks.devices."cryptssd1".device = "/dev/disk/by-uuid/37e18604-2e99-4122-96b0-8a9d8cc62908";
-
-  fileSystems."/virt/ssd1" =
-    { device = "/dev/disk/by-uuid/96bb4954-4b19-4941-9e7f-157d318bdf50";
-      fsType = "btrfs";
-      options = [ "subvol=@wssd1" ];
-    };
-
-  boot.initrd.luks.devices."cryptwssd1".device = "/dev/disk/by-uuid/d5aac138-fccb-4f6c-bf34-36caf5555a1e";
+  boot.initrd.luks.devices."cryptssd0".device = "/dev/disk/by-uuid/dc1ae840-b328-4d78-add0-9ea64169aef4";
 
   fileSystems."/mnt/hdd0" =
-    { device = "/dev/disk/by-uuid/b96c4d2b-85e4-4ac9-9ef8-aecdcb5f34e8";
+    { device = "/dev/disk/by-uuid/aff7461b-0c99-42e6-8205-aeb41b2009cd";
       fsType = "btrfs";
       options = [ "subvol=@hdd0" ];
     };
 
-  boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/78615e67-4a20-463a-b800-7fb557dbe532";
-
-  fileSystems."/virt/hdd0" =
-    { device = "/dev/disk/by-uuid/f1295a55-6551-4d16-b708-a8425f653f42";
-      fsType = "btrfs";
-      options = [ "subvol=@whdd0" ];
-    };
-
-  boot.initrd.luks.devices."cryptwhdd0".device = "/dev/disk/by-uuid/7c25b0d5-19ce-41ab-94f5-47524bf2aab8";
-
-  fileSystems."/virt/root" =
-    { device = "/dev/disk/by-uuid/00eb94ab-a20a-4e5b-807d-b6ab3b23c406";
-      fsType = "btrfs";
-      options = [ "subvol=@wroot" ];
-    };
-
-  boot.initrd.luks.devices."cryptwroot".device = "/dev/disk/by-uuid/5cd6f86b-dca7-4869-9bfc-89748894a704";
+  boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/685058f3-3ac1-45b4-8630-27d1ac063d09";
 
   fileSystems."/mnt/hdd1" =
-    { device = "/dev/disk/by-uuid/87a589d3-5eb4-4600-a513-6a7d8647f57f";
+    { device = "/dev/disk/by-uuid/78cad9f5-db8d-42e8-992b-4a7bf1b42a53";
       fsType = "btrfs";
       options = [ "subvol=@hdd1" ];
     };
 
-  boot.initrd.luks.devices."crypthdd1".device = "/dev/disk/by-uuid/ad0e368a-3910-4d1f-b39b-65a11a69b256";
+  boot.initrd.luks.devices."crypthdd1".device = "/dev/disk/by-uuid/93f1d758-16aa-47c2-beb5-0be9eb69fd54";
 
   swapDevices = [ ];
 

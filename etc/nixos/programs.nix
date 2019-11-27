@@ -2,13 +2,7 @@
 
 {
 	programs = {
-		dconf.enable = true;
 		gnupg.agent.enable = true;
-
-		java = {
-			enable = true;
-			package = pkgs.jdk12;
-		};
 
 		zsh = {
 			enable = true;
@@ -39,21 +33,6 @@
 				# Collect garbage.
 				ncollect = "sudo nix-collect-garbage -d";
 
-				# Japanese locale.
-				jp8 = "LC_ALL=ja_JP.UTF-8";
-
-				# Override Mesa OpenGL version to 3.0.
-				mesa_override = "MESA_GL_VERSION_OVERRIDE=3.0";
-
-				# Limit network speed to 128KiB d/u.
-				nlimit = "sudo sh /etc/scripts/wondershaper -a enp42s0 -d 10 -u 10";
-
-				# Clear network speed limit.
-				nclear = "sudo sh /etc/scripts/wondershaper -c -a enp42s0";
-
-				# Meguca development environment
-				meguca_dev = "nix-shell -p pth openssl geoip opencv ffmpeg_4";
-
 				# Generate ffmpeg concat list from ugoira animation.json
 				gen_ugo = ''egrep -o '[0-9]+\.[A-Za-z]+|[0-9]+' frames/animation.json | awk 'NR % 2 {print} !(NR % 2) {print $0/1000}' | sed -e "0~2n;s/^/file 'frames\//;s/$/'/" -e '1~2n;s/^/duration /' > list.txt'';
 			};
@@ -66,6 +45,11 @@
 				set nowrap
 				set tabsize 2
 			'';
+		};
+
+		java = {
+			enable = true;
+			package = pkgs.jdk12;
 		};
 	};
 }

@@ -3,21 +3,20 @@
 {
 	# List packages installed in system profile. To search by name, run:
 	# $ nix-env -qaP | grep wget
-	environment.systemPackages = with pkgs; [
-		# Utilities.
+	environment.systemPackages = with pkgs; with kdeApplications; [
+		# Utilities
 		lm_sensors
-		gnupg
 		neofetch
-		tewisay
-		catfish
-		ebtables
-		dnsmasq
-		bridge-utils
-		netcat-openbsd
 		virtmanager
 		openssl
 		docker-compose
-		qt5.qttools
+		youtube-dl
+		ffmpeg_4
+		gimp-with-plugins
+		shadowfox
+		pkgconfig
+		scream-receivers
+		dnsmasq
 
 		# Development
 		git
@@ -26,10 +25,9 @@
 		go
 		rustup
 		nodejs
-		pkgconfig
 		vscode-with-extensions
 
-		# Compression.
+		# Compression
 		p7zip
 		unzip
 		unrar
@@ -41,45 +39,32 @@
 		qbittorrent
 		keybase-gui
 		firefox
-		brave
-		midori
+		chromium
 		elinks
-		shadowfox
 		mumble
 
-		# Media.
+		# Media
 		ncmpcpp
 		mpv
-		youtube-dl
-		gimp
 		mcomix
-		timidity
-		soundfont-fluid
-		ffmpeg_4
-		obs-studio
 
-		# Games.
+		# Games
 		steam
 		multimc
 
-		# Emulation.
-		dolphinEmu
-		snes9x-gtk
-		mgba
-		wine
-
-		# KDE.
+		# KDE
 		akonadi
 		ark
-		ffmpegthumbs
 		kate
 		kcalc
 		kgpg
 		kmail
+		kmail-account-wizard
 		konversation
 		krename
 		okular
 		spectacle
 		gwenview
+		pinentry_qt5
 	];
 }

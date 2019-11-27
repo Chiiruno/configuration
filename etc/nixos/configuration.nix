@@ -11,7 +11,6 @@
 		./hardware-configuration.nix
 		./misc.nix
 		./network.nix
-		./override.nix
 		./packages.nix
 		./programs.nix
 		./services.nix
@@ -26,12 +25,8 @@
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
-		wine.build = "wineWow";
-
-		firefox = {
-			enableGoogleTalkPlugin = true;
-			enableAdobeFlash = true;
-		};
+		firefox.enableAdobeFlash = true;
+		scream-receivers.pulseSupport = true;
 	};
 
 	users = {
@@ -43,19 +38,7 @@
 			home = "/home/okina";
 			description = "隠岐奈";
 			initialHashedPassword = "$6$2eZF5D9poF$0cDC37zn4bzmdiSZDsVIh1pqHjJov67N8GyTPUxgKMq6VOv/ahgr1657b3S/UxJm0p9KkYsbSFOGuBTSRSv6T0";
-
-			extraGroups = [
-				"wheel"
-				"audio"
-				"networkmanager"
-				"input"
-				"plugdev"
-				"libvirtd"
-				"kvm"
-				"video"
-				"lp"
-				"docker"
-			];
+			extraGroups = [ "wheel" "kvm" "input" "libvirtd" ];
 		};
 	};
 }

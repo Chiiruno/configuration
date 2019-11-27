@@ -1,80 +1,42 @@
 { pkgs, ... }:
 
-let
-	key = "/etc/crypto/drive.key";
-in {
-	swapDevices = [{ device = "/swap/swapfile"; }];
-
+{
 	boot = {
-#		plymouth.enable = true;
 		kernelPackages = pkgs.linuxPackages_latest;
-		kernelModules = [ "jc42" ];
-
-		kernelPatches = [
-			{
-				name = "enable-vfio";
-				patch = null;
-
-				extraConfig = ''
-					VFIO y
-					VFIO_PCI y
-				'';
-			}
-		];
-
-		kernelParams = [
-			"amd_iommu=on"
-			"iommu=pt"
-			"zswap.enabled=1"
-#			"kvm.ignore_msrs=1"
-			"vfio-pci.ids=1002:67df,1002:aaf0"
-		];
+		kernelModules = [ "kvm-amd" "jc42" ];
+		kernelParams = [ "amd_iommu=on" "iommu=pt" "kvm.ignore_msrs=1" "zswap.enabled=1" ];
 
 		loader = {
-			efi = {
-				canTouchEfiVariables = true;
-				efiSysMountPoint = "/boot/efi";
-			};
-
-			grub = {
-				efiSupport = true;
-				enableCryptodisk = true;
-				device = "nodev";
-				splashImage = "/mnt/hdd1/home/okina/Pictures/grub.png";
-			};
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
 		};
 
 		initrd = {
-			# Append keyfiles to initrd.
-			secrets."/etc/crypto/root.key" = /etc/crypto/root.key;
-			secrets."/etc/crypto/drive.key" = /etc/crypto/drive.key;
-			# Create /run/cryptsetup directory to avoid locking warning
-			preDeviceCommands = "mkdir -pm0700 /run/cryptsetup";
+			availableKernelModules = [ "amdgpu" "vfio-pci" ];
 
-			# Unlock the encrypted partitions.
+			preDeviceCommands = ''
+				DEVS="0000:2d:00.0 0000:2d:00.1"
+
+				for DEV in $DEVS; do
+					echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+				done
+
+				modprobe -i vfio-pci
+			'';
+
 			luks.devices = {
-				"crypthdd0".keyFile = key;
-				"crypthdd1".keyFile = key;
-				"cryptwhdd0".keyFile = key;
-
-				"cryptroot" = {
-					allowDiscards = true;
-					keyFile = "/etc/crypto/root.key";
-				};
-
-				"cryptssd1" = {
-					allowDiscards = true;
-					keyFile = key;
-				};
+				"cryptroot".allowDiscards = true;
+				"cryptssd0".allowDiscards = true;
+				"cryptwhdd0".device = "/dev/disk/by-uuid/9bdddd4a-c39c-4f60-9534-39758ee53d60";
 
 				"cryptwroot" = {
+					device = "/dev/disk/by-uuid/63e59147-896b-4141-9a21-fd3d86699ab2";
 					allowDiscards = true;
-					keyFile = key;
 				};
 
-				"cryptwssd1" = {
+				"cryptwssd0" = {
+					device = "/dev/disk/by-uuid/a84b909a-7edd-4334-9d91-f6d5bdf4c094";
 					allowDiscards = true;
-					keyFile = key;
 				};
 			};
 		};
@@ -83,84 +45,37 @@ in {
 	fileSystems = {
 		"/" = {
 			label = "root";
-
-			options = [
-				"discard"
-				"compress=lzo"
-			];
-		};
-
-		"/.snapshots" = {
-			label = "snapshots";
-
-			options = [
-				"discard"
-				"compress=lzo"
-			];
+			options = [ "noatime" "nodiratime" "discard" "compress=zstd" ];
 		};
 
 		"/home" = {
 			label = "home";
-
-			options = [
-				"discard"
-				"compress=lzo"
-			];
+			options = [ "noatime" "nodiratime" "discard" "compress=zstd" ];
 		};
 
 		"/boot" = {
 			label = "boot";
-			options = [
-				"discard"
-				"compress=lzo"
-			];
+			options = [ "noatime" "nodiratime" "discard" ];
 		};
 
-		"/boot/efi" = {
-			label = "uefi";
-			options = [ "discard" ];
-		};
-
-		"/mnt/ssd1" = {
-			label = "ssd1";
-
-			options = [
-				"discard"
-				"compress=lzo"
-			];
+		"/mnt/ssd0" = {
+			label = "ssd0";
+			options = [ "noatime" "nodiratime" "discard" "compress=zstd" ];
 		};
 
 		"/mnt/hdd0" = {
 			label = "hdd0";
-			options = [ "compress=lzo" ];
+			options = [ "compress=zstd" ];
 		};
 
 		"/mnt/hdd1" = {
 			label = "hdd1";
-			options = [ "compress=lzo" ];
-		};
-
-		"/virt/root" = {
-			label = "wroot";
-
-			options = [
-				"discard"
-				"nodatacow"
-			];
-		};
-
-		"/virt/ssd1" = {
-			label = "wssd1";
-
-			options = [
-				"discard"
-				"nodatacow"
-			];
-		};
-
-		"/virt/hdd0" = {
-			label = "whdd0";
-			options = [ "nodatacow" ];
+			options = [ "compress=zstd" ];
 		};
 	};
+
+	swapDevices = [{
+		device = "/swapfile";
+		size = 8192;
+	}];
 }

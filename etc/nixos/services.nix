@@ -3,14 +3,11 @@
 {
 	services = {
 		timesyncd.enable = true;
-		printing.enable = true;
-		samba.enable = true;
-		accounts-daemon.enable = true;
-		kbfs.enable = true;
 		redshift.enable = true;
+		kbfs.enable = true;
 
+		# Let users read GameCube and Wii controllers.
 		udev.extraRules = ''
-			# Let users read GameCube and Wii controllers.
 			SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"
 			SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0aa7", TAG+="uaccess"
 		'';
@@ -54,76 +51,60 @@
 			torsocks.enable = true;
 		};
 
-		zeronet = {
-#			enable = true;
-			tor = true;
-			torAlways = true;
-		};
-
 		hydron = {
 			enable = true;
 			fetchTags = true;
-			interval = "daily";
+			interval = "weekly";
 			importPaths = [ "/mnt/hdd1/home/okina/Pictures" ];
 		};
 
 		xserver = {
 			enable = true;
-			updateDbusEnvironment = true;
-			desktopManager.plasma5.enable = true;
 			layout = "us";
+			desktopManager.plasma5.enable = true;
 
 			displayManager.sddm = {
 				enable = true;
 				autoNumlock = true;
 			};
-
-			# Disable any joystick controlling the pointer.
-			inputClassSections = [''
-				Identifier         "joystick catchall"
-				MatchIsJoystick    "on"
-				MatchDevicePath    "/dev/input/event*"
-				Driver             "joystick"
-				Option             "StartKeysEnabled"     "False"    # Support
-				Option             "StartMouseEnabled"    "False"    # Disable the mouse
-			''];
 		};
 
 		mpd = {
 			enable = true;
 			user = "okina";
 			group = "users";
-			musicDirectory = "/home/okina/Music";
+			musicDirectory = "/mnt/hdd1/home/okina/Music";
 
 			extraConfig = ''
 				auto_update             "yes"
-
 				max_playlist_length     "65536"
 				max_command_list_size   "16384"
 				max_output_buffer_size  "32768"
-
 				follow_outside_symlinks "yes"
 				follow_inside_symlinks  "yes"
 
 				audio_output {
-					type                  "pulse"
-					name                  "Okina's Music Player Daemon"
-					server                "127.0.0.1"
+					type		"pulse"
+					name		"pulse audio"
+					server	"127.0.0.1"
 				}
 			'';
 		};
 	};
 
 	systemd = {
+		tmpfiles.rules = [ "f /dev/shm/scream 0660 okina libvirtd -" ];
 		services.nix-daemon.serviceConfig.EnvironmentFile = "/etc/github/credentials";
 
-		user.services = {
-			"timidity" = {
-				description = "TiMidity++ Daemon";
-				after = ["sound.target"];
-				wantedBy = ["default.target"];
-				unitConfig.ConditionUser = "okina";
-				serviceConfig.ExecStart = "${pkgs.timidity}/bin/timidity -iA -Os";
+		user.services.scream-ivshmem = {
+			enable = true;
+			description = "Scream IVSHMEM";
+			wantedBy = [ "multi-user.target" ];
+			requires = [ "pulseaudio.service" ];
+
+			serviceConfig = {
+				ExecStart = "${pkgs.scream-receivers}/bin/scream-ivshmem-pulse /dev/shm/scream";
+				Restart = "always";
 			};
 		};
 	};
