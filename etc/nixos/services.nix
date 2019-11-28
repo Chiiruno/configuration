@@ -3,8 +3,15 @@
 {
 	services = {
 		timesyncd.enable = true;
+		fstrim.enable = true;
 		redshift.enable = true;
 		kbfs.enable = true;
+
+		# Scrub BTRFS filesystems monthly.
+		btrfs.autoScrub = {
+			enable = true;
+			fileSystems = [ "/" "/home" "/mnt/ssd0" "/mnt/hdd0" "/mnt/hdd1" ];
+		};
 
 		# Let users read GameCube and Wii controllers.
 		udev.extraRules = ''

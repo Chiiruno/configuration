@@ -45,12 +45,12 @@
 	fileSystems = {
 		"/" = {
 			label = "root";
-			options = [ "noatime" "nodiratime" "discard" "compress=zstd" ];
+			options = [ "noatime" "nodiratime" "discard" "autodefrag" "compress=zstd" ];
 		};
 
 		"/home" = {
 			label = "home";
-			options = [ "noatime" "nodiratime" "discard" "compress=zstd" ];
+			options = [ "noatime" "nodiratime" "discard" "autodefrag" "compress=zstd" ];
 		};
 
 		"/boot" = {
@@ -60,17 +60,17 @@
 
 		"/mnt/ssd0" = {
 			label = "ssd0";
-			options = [ "noatime" "nodiratime" "discard" "compress=zstd" ];
+			options = [ "noatime" "nodiratime" "discard" "autodefrag" "compress=zstd" ];
 		};
 
 		"/mnt/hdd0" = {
 			label = "hdd0";
-			options = [ "compress=zstd" ];
+			options = [ "autodefrag" "compress=zstd" ];
 		};
 
 		"/mnt/hdd1" = {
 			label = "hdd1";
-			options = [ "compress=zstd" ];
+			options = [ "autodefrag" "compress=zstd" ];
 		};
 	};
 
