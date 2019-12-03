@@ -11,7 +11,7 @@
 		openssl
 		docker-compose
 		youtube-dl
-		ffmpeg_4
+		ffmpeg-full
 		gimp-with-plugins
 		shadowfox
 		pkgconfig
@@ -47,6 +47,7 @@
 		ncmpcpp
 		mpv
 		mcomix
+		mixxx
 
 		# Games
 		steam

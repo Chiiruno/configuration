@@ -110,6 +110,7 @@
 			requires = [ "pulseaudio.service" ];
 
 			serviceConfig = {
+				ExecStartPre = "${pkgs.coreutils}/bin/dd if=/dev/zero of=/dev/shm/scream bs=1M count=2";
 				ExecStart = "${pkgs.scream-receivers}/bin/scream-ivshmem-pulse /dev/shm/scream";
 				Restart = "always";
 			};
