@@ -6,6 +6,11 @@
 		kernelModules = [ "kvm-amd" "jc42" ];
 		kernelParams = [ "amd_iommu=on" "iommu=pt" "kvm.ignore_msrs=1" "zswap.enabled=1" ];
 
+		kernel.sysctl = {
+			"net.ipv6.conf.enp39s0.accept_ra" = 2;
+			"net.ipv6.conf.virbr0-nic.accept_ra" = 2;
+		};
+
 		loader = {
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
