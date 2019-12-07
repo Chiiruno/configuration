@@ -11,6 +11,7 @@
 		./hardware-configuration.nix
 		./misc.nix
 		./network.nix
+		./override.nix
 		./packages.nix
 		./programs.nix
 		./services.nix

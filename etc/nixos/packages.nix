@@ -33,6 +33,7 @@
 		unrar
 		unar
 		zstd
+		brotli
 
 		# Internet
 		telnet
