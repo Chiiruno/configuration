@@ -21,7 +21,9 @@
 		# Development
 		git
 		gnumake
+		cmake
 		gcc
+		clang
 		go
 		rustup
 		nodejs
