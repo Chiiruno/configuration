@@ -34,7 +34,8 @@
 				ncollect = "sudo nix-collect-garbage -d";
 
 				# Generate ffmpeg concat list from ugoira animation.json
-				gen_ugo = ''egrep -o '[0-9]+\.[A-Za-z]+|[0-9]+' frames/animation.json | awk 'NR % 2 {print} !(NR % 2) {print $0/1000}' | sed -e "0~2n;s/^/file 'frames\//;s/$/'/" -e '1~2n;s/^/duration /' > list.txt'';
+				gen_ugo = ''egrep -o '[0-9]+\.[A-Za-z]+|[0-9]+' frames/animation.json | sed -e "0~2n;s/^/file 'frames\//;s/$/'/" -e '1~2n;s/^/duration /' > list.txt'';
+				gen_ugo_conv = ''egrep -o '[0-9]+\.[A-Za-z]+|[0-9]+' frames/animation.json | awk 'NR % 2 {print} !(NR % 2) {print $0/1000}' | sed -e "0~2n;s/^/file 'frames\//;s/$/'/" -e '1~2n;s/^/duration /' > list.txt'';
 			};
 		};
 

@@ -17,9 +17,14 @@
 		pkgconfig
 		scream-receivers
 		dnsmasq
+		win-qemu
+
+		# Plan 9
+		plan9port
 
 		# Development
 		git
+		mercurial
 		gnumake
 		cmake
 		gcc

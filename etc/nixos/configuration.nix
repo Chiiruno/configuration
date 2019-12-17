@@ -26,8 +26,8 @@
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
-		firefox.enableAdobeFlash = true;
-		chromium.enablePepperFlash = true;
+		# firefox.enableAdobeFlash = true;
+		# chromium.enablePepperFlash = true;
 		scream-receivers.pulseSupport = true;
 	};
 
