@@ -26,6 +26,7 @@
 				user = "okina"
 				group = "kvm"
 				max_files = 2048
+				nographics_allow_host_audio = 1;
 
 				cgroup_device_acl = [
 					"/dev/kvm",

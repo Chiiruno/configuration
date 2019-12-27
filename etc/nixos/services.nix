@@ -91,9 +91,9 @@
 				follow_inside_symlinks  "yes"
 
 				audio_output {
-					type		"pulse"
-					name		"pulse audio"
-					server	"127.0.0.1"
+					type   "pulse"
+					name   "MPD"
+					server "127.0.0.1"
 				}
 			'';
 		};

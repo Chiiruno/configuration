@@ -50,6 +50,7 @@
 		chromium
 		elinks
 		mumble
+		discord
 
 		# Media
 		ncmpcpp
