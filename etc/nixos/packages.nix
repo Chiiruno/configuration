@@ -18,21 +18,36 @@
 		scream-receivers
 		dnsmasq
 		win-qemu
+		ebtables
+		alsaLib
+		freetype
+		expat
+		vulkan-validation-layers
+		vulkan-loader
+		xlibs.libX11
+		xlibs.libXcursor
+		xlibs.libXi
+		xlibs.libXrandr
 
 		# Plan 9
 		plan9port
 
 		# Development
 		git
+		git-lfs
 		mercurial
 		gnumake
 		cmake
 		gcc
 		clang
 		go
+		tinygo
 		rustup
 		nodejs
 		vscode-with-extensions
+		coreutils
+		binutils
+		python3
 
 		# Compression
 		p7zip
@@ -57,6 +72,7 @@
 		mpv
 		mcomix
 		mixxx
+		# syncplay
 
 		# Games
 		steam

@@ -4,7 +4,16 @@
 	boot = {
 		kernelPackages = pkgs.linuxPackages_latest;
 		kernelModules = [ "kvm-amd" "jc42" ];
-		kernelParams = [ "amd_iommu=on" "iommu=pt" "kvm.ignore_msrs=1" "zswap.enabled=1" ];
+
+		kernelParams = [
+			"amd_iommu=on"
+			"iommu=pt"
+			"kvm.ignore_msrs=1"
+			"zswap.enabled=1"
+			"default_hugepagesz=1G"
+			"hugepagesz=1G"
+			"hugepages=8"
+		];
 
 		kernel.sysctl = {
 			"net.ipv6.conf.enp39s0.accept_ra" = 2;

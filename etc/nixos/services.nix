@@ -6,6 +6,7 @@
 		fstrim.enable = true;
 		redshift.enable = true;
 		kbfs.enable = true;
+		postgresql.extraConfig = "huge_pages = 'off'";
 
 		# Scrub BTRFS filesystems monthly.
 		btrfs.autoScrub = {
@@ -47,7 +48,7 @@
 				no-resolv
 				proxy-dnssec
 				cache-size=1000
-				listen-address=::1,127.0.0.1,192.168.1.1
+				listen-address=::1,fe80::9a1e:19ff:fe39:401a,127.0.0.1,192.168.1.1
 			'';
 		};
 
@@ -102,6 +103,20 @@
 	systemd = {
 		tmpfiles.rules = [ "f /dev/shm/scream 0660 okina libvirtd -" ];
 		services.nix-daemon.serviceConfig.EnvironmentFile = "/etc/github/credentials";
+
+		services.win10 = {
+			enable = true;
+			description = "Windows 10 Enterprise VM";
+			wantedBy = [ "user@1000.service" ];
+			requires = [ "network-online.target" "libvirtd.service" ];
+
+			serviceConfig = {
+				Type = "oneshot";
+				ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
+				ExecStart = "${pkgs.libvirt}/bin/virsh start win10";
+				RemainAfterExit = true;
+			};
+		};
 
 		user.services.scream-ivshmem = {
 			enable = true;

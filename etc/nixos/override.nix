@@ -2,8 +2,15 @@ let
 	baseConfig = { allowUnfree = true; };
 	unstable = import <nixos-unstable> { config = baseConfig; };
 in {
-	imports = [ <nixos-unstable/nixos/modules/virtualisation/libvirtd.nix> ];
-	disabledModules = [ "virtualisation/libvirtd.nix" ];
+	imports = [
+		# <nixos-unstable/nixos/modules/virtualisation/libvirtd.nix>
+		# <nixos-unstable/nixos/modules/services/web-servers/hydron.nix>
+	];
+
+	disabledModules = [
+		# "virtualisation/libvirtd.nix"
+		# "services/web-servers/hydron.nix"
+	];
 
 	nixpkgs.config = baseConfig // {
 		packageOverrides = pkgs: {
@@ -14,7 +21,7 @@ in {
 			gcc = unstable.gcc;
 			clang = unstable.clang;
 			go = unstable.go;
-			# tinygo = unstable.tinygo;
+			tinygo = unstable.tinygo;
 			vscode-with-extensions = unstable.vscode-with-extensions;
 
 			# Virtualization
@@ -26,6 +33,7 @@ in {
 			# Media
 			ffmpeg-full = unstable.ffmpeg-full;
 			mixxx = unstable.mixxx;
+			hydron = unstable.hydron;
 		};
 	};
 }
