@@ -101,33 +101,38 @@
 	};
 
 	systemd = {
-		tmpfiles.rules = [ "f /dev/shm/scream 0660 okina libvirtd -" ];
 		services.nix-daemon.serviceConfig.EnvironmentFile = "/etc/github/credentials";
+
+		tmpfiles.rules = [
+			"f /dev/shm/looking-glass 0660 okina libvirtd -"
+			"f /dev/shm/scream 0660 okina libvirtd -"
+		];
 
 		services.win10 = {
 			enable = true;
 			description = "Windows 10 Enterprise VM";
 			wantedBy = [ "user@1000.service" ];
-			requires = [ "network-online.target" "libvirtd.service" ];
+			requires = [ "network-online.target" "libvirtd.service" "ivshmem.service" ];
 
 			serviceConfig = {
 				Type = "oneshot";
-				ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
 				ExecStart = "${pkgs.libvirt}/bin/virsh start win10";
 				RemainAfterExit = true;
 			};
 		};
 
-		user.services.scream-ivshmem = {
+		services.ivshmem = {
 			enable = true;
-			description = "Scream IVSHMEM";
+			description = "Prepare IVSHMEM";
 			wantedBy = [ "multi-user.target" ];
-			requires = [ "pulseaudio.service" ];
 
 			serviceConfig = {
-				ExecStartPre = "${pkgs.coreutils}/bin/dd if=/dev/zero of=/dev/shm/scream bs=1M count=2";
-				ExecStart = "${pkgs.scream-receivers}/bin/scream-ivshmem-pulse /dev/shm/scream";
-				Restart = "always";
+				Type = "oneshot";
+				User = "okina";
+				Group = "libvirtd";
+				ExecStartPre = "${pkgs.coreutils}/bin/dd if=/dev/zero of=/dev/shm/looking-glass bs=1M count=32";
+				ExecStart = "${pkgs.coreutils}/bin/dd if=/dev/zero of=/dev/shm/scream bs=1M count=2";
+				RemainAfterExit = true;
 			};
 		};
 	};

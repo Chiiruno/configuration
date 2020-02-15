@@ -29,7 +29,7 @@
 		scream-receivers.pulseSupport = true;
 
 		chromium = {
-			enablePepperFlash = true;
+			# enablePepperFlash = true;
 			enableWideVine = true;
 		};
 	};

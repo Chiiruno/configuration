@@ -29,11 +29,13 @@ in {
 			qemu = unstable.qemu;
 			virt-manager = unstable.virt-manager;
 			win-qemu = unstable.win-qemu;
+			looking-glass-client = unstable.looking-glass-client;
 
 			# Media
 			ffmpeg-full = unstable.ffmpeg-full;
 			mixxx = unstable.mixxx;
 			hydron = unstable.hydron;
+			youtube-dl = unstable.youtube-dl;
 		};
 	};
 }

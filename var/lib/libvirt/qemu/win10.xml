@@ -15,6 +15,9 @@ or other application using the libvirt API.
   </metadata>
   <memory unit='KiB'>8388608</memory>
   <currentMemory unit='KiB'>8388608</currentMemory>
+  <memoryBacking>
+    <hugepages/>
+  </memoryBacking>
   <vcpu placement='static'>12</vcpu>
   <iothreads>1</iothreads>
   <cputune>
@@ -71,7 +74,7 @@ or other application using the libvirt API.
       <driver name='qemu' type='raw' cache='none' io='native'/>
       <source dev='/dev/disk/by-id/dm-uuid-CRYPT-LUKS2-63e59147896b41419a21fd3d86699ab2-cryptwroot'/>
       <target dev='sda' bus='scsi'/>
-      <boot order='1'/>
+      <boot order='2'/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
     </disk>
     <disk type='block' device='disk'>
@@ -186,45 +189,69 @@ or other application using the libvirt API.
       <target chassis='18' port='0xf'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x7'/>
     </controller>
-    <interface type='network'>
-      <mac address='52:54:00:2a:93:bc'/>
-      <source network='default'/>
+    <controller type='pci' index='19' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='19' port='0x10'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0' multifunction='on'/>
+    </controller>
+    <controller type='pci' index='20' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='20' port='0x11'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x1'/>
+    </controller>
+    <interface type='direct'>
+      <mac address='52:54:00:dc:95:93'/>
+      <source dev='enp39s0' mode='bridge'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x0c' slot='0x00' function='0x0'/>
     </interface>
     <input type='mouse' bus='virtio'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x0e' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x10' slot='0x00' function='0x0'/>
     </input>
     <input type='keyboard' bus='virtio'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x0f' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x11' slot='0x00' function='0x0'/>
     </input>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
+    <sound model='ich9'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1b' function='0x0'/>
+    </sound>
     <hostdev mode='subsystem' type='pci' managed='yes'>
       <source>
         <address domain='0x0000' bus='0x2d' slot='0x00' function='0x0'/>
       </source>
-      <address type='pci' domain='0x0000' bus='0x0f' slot='0x00' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x13' slot='0x00' function='0x0'/>
     </hostdev>
     <hostdev mode='subsystem' type='pci' managed='yes'>
       <source>
         <address domain='0x0000' bus='0x2d' slot='0x00' function='0x1'/>
       </source>
-      <address type='pci' domain='0x0000' bus='0x10' slot='0x00' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x14' slot='0x00' function='0x0'/>
     </hostdev>
     <memballoon model='virtio'>
-      <address type='pci' domain='0x0000' bus='0x11' slot='0x00' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x0f' slot='0x00' function='0x0'/>
     </memballoon>
+    <shmem name='looking-glass'>
+      <model type='ivshmem-plain'/>
+      <size unit='M'>32</size>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x0c' function='0x0'/>
+    </shmem>
     <shmem name='scream'>
       <model type='ivshmem-plain'/>
       <size unit='M'>2</size>
-      <address type='pci' domain='0x0000' bus='0x0b' slot='0x02' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x0d' function='0x0'/>
     </shmem>
+    <vsock model='virtio'>
+      <cid auto='yes' address='3'/>
+      <address type='pci' domain='0x0000' bus='0x12' slot='0x00' function='0x0'/>
+    </vsock>
   </devices>
   <qemu:commandline>
     <qemu:arg value='-object'/>
     <qemu:arg value='input-linux,id=mouse1,evdev=/dev/input/by-path/pci-0000:2a:00.3-usb-0:2:1.0-event-mouse'/>
     <qemu:arg value='-object'/>
     <qemu:arg value='input-linux,id=kbd1,evdev=/dev/input/by-path/pci-0000:2a:00.1-usb-0:5:1.0-event-kbd,grab_all=on,repeat=on'/>
+    <qemu:env name='QEMU_AUDIO_DRV' value='pa'/>
+    <qemu:env name='QEMU_PA_SERVER' value='/run/user/1000/pulse/native'/>
   </qemu:commandline>
 </domain>

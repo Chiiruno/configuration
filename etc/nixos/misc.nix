@@ -64,6 +64,6 @@
 
 	fonts = {
 		fontconfig.cache32Bit = true;
-		fonts = [ pkgs.ipafont ];
+		fonts = with pkgs; [ ipafont baekmuk-ttf ];
 	};
 }

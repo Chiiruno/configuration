@@ -1,2 +1,2 @@
 #!/bin/sh
-systemctl --user start scream-ivshmem
+scream-ivshmem-pulse /dev/shm/scream

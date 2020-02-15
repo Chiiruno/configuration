@@ -28,6 +28,7 @@
 		xlibs.libXcursor
 		xlibs.libXi
 		xlibs.libXrandr
+		looking-glass-client
 
 		# Plan 9
 		plan9port
