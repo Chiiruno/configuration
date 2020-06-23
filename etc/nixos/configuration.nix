@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 
 {
-	system.stateVersion = "19.09";
+	system.stateVersion = "20.03";
 
 	imports = [
 		./boot.nix
@@ -29,7 +29,7 @@
 		scream-receivers.pulseSupport = true;
 
 		chromium = {
-			# enablePepperFlash = true;
+			enablePepperFlash = true;
 			enableWideVine = true;
 		};
 	};

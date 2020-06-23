@@ -29,6 +29,7 @@
 		xlibs.libXi
 		xlibs.libXrandr
 		looking-glass-client
+		nix
 
 		# Plan 9
 		plan9port
@@ -71,7 +72,6 @@
 		# Media
 		ncmpcpp
 		mpv
-		mcomix
 		mixxx
 		# syncplay
 
@@ -93,5 +93,6 @@
 		spectacle
 		gwenview
 		pinentry_qt5
+		plasma-browser-integration
 	];
 }

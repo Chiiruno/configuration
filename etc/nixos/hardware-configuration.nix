@@ -8,7 +8,7 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "ahci" "xhci_pci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -21,15 +21,15 @@
 
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/0074cfa7-91e4-4d15-9b4e-0d4965d5260e";
 
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/1725-E8F3";
+      fsType = "vfat";
+    };
+
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/9088f1fd-2c1d-48da-a929-3a671c1549b0";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1725-E8F3";
-      fsType = "vfat";
     };
 
   fileSystems."/mnt/ssd0" =
@@ -40,14 +40,6 @@
 
   boot.initrd.luks.devices."cryptssd0".device = "/dev/disk/by-uuid/dc1ae840-b328-4d78-add0-9ea64169aef4";
 
-  fileSystems."/mnt/hdd0" =
-    { device = "/dev/disk/by-uuid/aff7461b-0c99-42e6-8205-aeb41b2009cd";
-      fsType = "btrfs";
-      options = [ "subvol=@hdd0" ];
-    };
-
-  boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/685058f3-3ac1-45b4-8630-27d1ac063d09";
-
   fileSystems."/mnt/hdd1" =
     { device = "/dev/disk/by-uuid/78cad9f5-db8d-42e8-992b-4a7bf1b42a53";
       fsType = "btrfs";
@@ -56,7 +48,13 @@
 
   boot.initrd.luks.devices."crypthdd1".device = "/dev/disk/by-uuid/93f1d758-16aa-47c2-beb5-0be9eb69fd54";
 
-  swapDevices = [ ];
+  fileSystems."/mnt/hdd0" =
+    { device = "/dev/disk/by-uuid/aff7461b-0c99-42e6-8205-aeb41b2009cd";
+      fsType = "btrfs";
+      options = [ "subvol=@hdd0" ];
+    };
 
+  boot.initrd.luks.devices."crypthdd0".device = "/dev/disk/by-uuid/685058f3-3ac1-45b4-8630-27d1ac063d09";
+  swapDevices = [ ];
   nix.maxJobs = lib.mkDefault 16;
 }

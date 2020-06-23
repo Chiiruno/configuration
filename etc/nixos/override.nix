@@ -1,15 +1,15 @@
 let
-	baseConfig = { allowUnfree = true; };
+	baseConfig = { permittedInsecurePackages = [ "p7zip-16.02" ]; allowUnfree = true; };
 	unstable = import <nixos-unstable> { config = baseConfig; };
 in {
 	imports = [
-		# <nixos-unstable/nixos/modules/virtualisation/libvirtd.nix>
-		# <nixos-unstable/nixos/modules/services/web-servers/hydron.nix>
+		<nixos-unstable/nixos/modules/virtualisation/libvirtd.nix>
+		<nixos-unstable/nixos/modules/services/web-servers/hydron.nix>
 	];
 
 	disabledModules = [
-		# "virtualisation/libvirtd.nix"
-		# "services/web-servers/hydron.nix"
+		"virtualisation/libvirtd.nix"
+		"services/web-servers/hydron.nix"
 	];
 
 	nixpkgs.config = baseConfig // {
@@ -23,6 +23,7 @@ in {
 			go = unstable.go;
 			tinygo = unstable.tinygo;
 			vscode-with-extensions = unstable.vscode-with-extensions;
+			nix = unstable.nix;
 
 			# Virtualization
 			libvirt = unstable.libvirt;
@@ -36,6 +37,7 @@ in {
 			mixxx = unstable.mixxx;
 			hydron = unstable.hydron;
 			youtube-dl = unstable.youtube-dl;
+			discord = unstable.discord;
 		};
 	};
 }

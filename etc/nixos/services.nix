@@ -4,8 +4,8 @@
 	services = {
 		timesyncd.enable = true;
 		fstrim.enable = true;
-		redshift.enable = true;
-		kbfs.enable = true;
+		# redshift.enable = true;
+		# kbfs.enable = true;
 		postgresql.extraConfig = "huge_pages = 'off'";
 
 		# Scrub BTRFS filesystems monthly.
