@@ -32,7 +32,7 @@ in {
 			firefox = unstable.firefox;
 			konversation = unstable.konversation;
 			ktorrent = unstable.ktorrent;
-			ffmpeg-full = unstable.ffmpeg-full;
+			ffmpeg-full = unstable.ffmpeg-full.override { rav1e = pkgs.rav1e; };
 		};
 	};
 }
