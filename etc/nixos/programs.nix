@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
 	programs = {
 		gnupg.agent.enable = true;
@@ -48,9 +46,5 @@
 			'';
 		};
 
-		java = {
-			enable = true;
-			package = pkgs.jdk12;
-		};
 	};
 }

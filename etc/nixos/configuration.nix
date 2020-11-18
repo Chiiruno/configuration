@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 
 {
-	system.stateVersion = "20.03";
+	system.stateVersion = "20.09";
 
 	imports = [
 		./boot.nix
@@ -26,12 +26,8 @@
 	nixpkgs.config = {
 		allowUnfree = true;
 		pulseaudio = true;
-		scream-receivers.pulseSupport = true;
-
-		chromium = {
-			enablePepperFlash = true;
-			enableWideVine = true;
-		};
+		firefox.enablePlasmaBrowserIntegration = true;
+		allowBroken = true;
 	};
 
 	users = {

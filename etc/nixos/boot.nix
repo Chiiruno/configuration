@@ -1,32 +1,36 @@
-{ pkgs, ... }:
-
 {
 	boot = {
-		kernelPackages = pkgs.linuxPackages_latest;
-		kernelModules = [ "kvm-amd" "jc42" ];
+		kernelModules = [ "k10temp" "nct6775" ];
+		supportedFilesystems = [ "bcachefs" ];
 
 		kernelParams = [
 			"amd_iommu=on"
 			"iommu=pt"
-			"kvm.ignore_msrs=1"
 			"zswap.enabled=1"
 			"default_hugepagesz=1G"
 			"hugepagesz=1G"
-			"hugepages=8"
+			"hugepages=16"
 		];
 
 		kernel.sysctl = {
+			"kernel.sysrq" = 1;
 			"net.ipv6.conf.enp39s0.accept_ra" = 2;
-			"net.ipv6.conf.virbr0-nic.accept_ra" = 2;
+			"net.ipv6.conf.virbr0.accept_ra" = 2;
+			"net.ipv6.conf.macvtap0.accept_ra" = 2;
 		};
 
 		loader = {
 			systemd-boot.enable = true;
-			efi.canTouchEfiVariables = true;
+
+			efi = {
+				canTouchEfiVariables = true;
+				efiSysMountPoint = "/boot/efi";
+			};
 		};
 
 		initrd = {
 			availableKernelModules = [ "amdgpu" "vfio-pci" ];
+			supportedFilesystems = [ "bcachefs" ];
 
 			preDeviceCommands = ''
 				DEVS="0000:2d:00.0 0000:2d:00.1"
@@ -41,15 +45,20 @@
 			luks.devices = {
 				"cryptroot".allowDiscards = true;
 				"cryptssd0".allowDiscards = true;
-				"cryptwhdd0".device = "/dev/disk/by-uuid/9bdddd4a-c39c-4f60-9534-39758ee53d60";
+				"cryptwhdd0".device = "/dev/disk/by-uuid/f1032f99-bebc-4984-92ad-0f2f3918eaf8";
+
+				"cryptswap" = {
+					device = "/dev/disk/by-uuid/218eaaeb-74bf-4d38-be49-a9098cd67f7e";
+					allowDiscards = true;
+				};
 
 				"cryptwroot" = {
-					device = "/dev/disk/by-uuid/63e59147-896b-4141-9a21-fd3d86699ab2";
+					device = "/dev/disk/by-uuid/2723e704-4a04-429b-981d-e52735304e78";
 					allowDiscards = true;
 				};
 
 				"cryptwssd0" = {
-					device = "/dev/disk/by-uuid/a84b909a-7edd-4334-9d91-f6d5bdf4c094";
+					device = "/dev/disk/by-uuid/9877c16d-c375-48f3-9b69-006f4d509366";
 					allowDiscards = true;
 				};
 			};
@@ -57,39 +66,10 @@
 	};
 
 	fileSystems = {
-		"/" = {
-			label = "root";
-			options = [ "noatime" "nodiratime" "discard" "autodefrag" "compress=zstd" ];
-		};
-
-		"/home" = {
-			label = "home";
-			options = [ "noatime" "nodiratime" "discard" "autodefrag" "compress=zstd" ];
-		};
-
-		"/boot" = {
-			label = "boot";
-			options = [ "noatime" "nodiratime" "discard" ];
-		};
-
-		"/mnt/ssd0" = {
-			label = "ssd0";
-			options = [ "noatime" "nodiratime" "discard" "autodefrag" "compress=zstd" ];
-		};
-
-		"/mnt/hdd0" = {
-			label = "hdd0";
-			options = [ "autodefrag" "compress=zstd" ];
-		};
-
-		"/mnt/hdd1" = {
-			label = "hdd1";
-			options = [ "autodefrag" "compress=zstd" ];
-		};
+		"/".label = "root";
+		"/boot/efi".label = "uefi";
+		"/mnt/ssd0".label = "ssd0";
+		"/mnt/hdd0".label = "hdd0";
+		"/mnt/hdd1".label = "hdd1";
 	};
-
-	swapDevices = [{
-		device = "/swapfile";
-		size = 8192;
-	}];
 }

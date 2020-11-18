@@ -1,2 +1,2 @@
-#!/bin/sh
-scream-ivshmem-pulse /dev/shm/scream
+#/bin/sh
+scream-ivshmem-pulse /dev/shm/scream-ivshmem
