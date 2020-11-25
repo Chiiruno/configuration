@@ -38,7 +38,11 @@
 
 	hardware = {
 		cpu.amd.updateMicrocode = true;
-		opengl.driSupport32Bit = true;
+
+		opengl = {
+			driSupport32Bit = true;
+			extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+		};
 
 		pulseaudio = {
 			enable = true;

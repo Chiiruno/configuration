@@ -12,6 +12,8 @@
 		gimp-with-plugins
 		scream-receivers
 		looking-glass-client
+		htop
+		nload
 
 		# Development
 		git

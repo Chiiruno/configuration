@@ -27,7 +27,6 @@
 		allowUnfree = true;
 		pulseaudio = true;
 		firefox.enablePlasmaBrowserIntegration = true;
-		allowBroken = true;
 	};
 
 	users = {
