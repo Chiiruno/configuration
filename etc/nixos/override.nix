@@ -35,6 +35,7 @@ in {
 			konversation = unstable.konversation;
 			ktorrent = unstable.ktorrent;
 			ffmpeg-full = unstable.ffmpeg-full;
+			peruse = unstable.peruse;
 		};
 	};
 }
