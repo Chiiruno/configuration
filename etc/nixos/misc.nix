@@ -4,6 +4,7 @@
 	time.timeZone = "America/Chicago";
 	systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 	sound.enable = true;
+	environment.pathsToLink = [ "/share/zsh" ];
 
 	security.pam.loginLimits = [{
 		domain = "*";

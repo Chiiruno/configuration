@@ -17,25 +17,9 @@ in {
 			linux_testing_bcachefs = unstable.linux_testing_bcachefs;
 			bcachefs-tools = unstable.bcachefs-tools;
 
-			# Development
-			vscode-with-extensions = unstable.vscode-with-extensions;
-
 			# Virtualization
 			libvirt = unstable.libvirt;
 			qemu = unstable.qemu;
-			virt-manager = unstable.virt-manager;
-			looking-glass-client = unstable.looking-glass-client;
-			scream-receivers = unstable.scream-receivers;
-
-			# Media
-			youtube-dl = unstable.youtube-dl;
-			discord = unstable.discord;
-			firefox = unstable.firefox;
-			steam = unstable.steam;
-			konversation = unstable.konversation;
-			ktorrent = unstable.ktorrent;
-			ffmpeg-full = unstable.ffmpeg-full;
-			peruse = unstable.peruse;
 		};
 	};
 }

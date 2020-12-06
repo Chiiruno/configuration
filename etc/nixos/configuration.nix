@@ -15,6 +15,7 @@
 		./packages.nix
 		./programs.nix
 		./services.nix
+		<home-manager/nixos>
 	];
 
 	nix = {

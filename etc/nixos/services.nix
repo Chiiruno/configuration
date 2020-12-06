@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
 	services = {
 		timesyncd.enable = true;
@@ -19,25 +17,31 @@
 			torsocks.enable = true;
 		};
 
-	mpd = {
-		enable = true;
-		user = "okina";
-		group = "users";
-		musicDirectory = "/mnt/hdd0/home/okina/Music";
+#		zeronet = {
+#			enable = true;
+#			tor = true;
+#			torAlways = true;
+#		};
 
-		extraConfig = ''
-			auto_update							"yes"
-			max_playlist_length			"65536"
-			max_command_list_size		"16384"
-			max_output_buffer_size	"32768"
+		mpd = {
+			enable = true;
+			user = "okina";
+			group = "users";
+			musicDirectory = "/mnt/hdd0/home/okina/Music";
 
-			audio_output {
-				type		"pulse"
-				name		"Pulseaudio"
-				server	"127.0.0.1"
-			}
-		'';
-	};
+			extraConfig = ''
+				auto_update							"yes"
+				max_playlist_length			"65536"
+				max_command_list_size		"16384"
+				max_output_buffer_size	"32768"
+
+				audio_output {
+					type		"pulse"
+					name		"Pulseaudio"
+					server	"127.0.0.1"
+				}
+			'';
+		};
 
 		xserver = {
 			enable = true;
