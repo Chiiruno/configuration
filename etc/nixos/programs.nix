@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 let
 	unstable = import <nixos-unstable> { config = baseConfig; };
 
@@ -60,7 +62,7 @@ in
 		useUserPackages = true;
 		useGlobalPkgs = true;
 
-		users.okina = { pkgs, ... }: {
+		users.okina = {
 			programs = {
 				gpg.enable = true;
 				ncmpcpp.enable = true;
@@ -78,14 +80,6 @@ in
 					controlPersist = "yes";
 					extraConfig = "Ciphers aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr";
 
-					matchBlocks = {
-						"shamik.ooo" = {
-							addressFamily = "inet6";
-							hostname = "shamik.ooo";
-							identityFile = "~/.ssh/id_ed25519";
-							user = "okina";
-							port = 13372;
-						};
 					};
 				};
 
@@ -115,7 +109,7 @@ in
 
 				firefox  = {
 					enable = true;
-					package = unstable.firefox;
+#					package = unstable.firefox;
 
 					profiles = {
 						"okina" = {
@@ -164,9 +158,9 @@ in
 						scale = "ewa_lanczossharp";
 						cscale = "ewa_lanczossharp";
 						video-sync = "display-resample";
-						interpolation = true;
 						tscale = "oversample";
-						no-border = true;
+						interpolation = true;
+						border = false;
 						alang = "jp,jpn";
 						slang = "en,eng";
 						screenshot-format = "png";
